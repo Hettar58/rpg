@@ -7,6 +7,12 @@ public class Main extends JFrame {
     }
     private void initUI(){
         Render render = new Render();
+        add(render);
+
+        Personnage perso1 = new Personnage(250, 400);
+        Enemi enemi1 = new Enemi(450, 400);
+        render.addPersonnage(perso1);
+        render.addEnemi(enemi1);
         setTitle("RPG");
         setSize(800, 600);
         setLocationRelativeTo(null);
