@@ -1,7 +1,7 @@
 public class Background extends Sprite{
-    public Background(int x, int y){
+    public Background(int x, int y, String dir){
         super(x, y);
-        loadImage("src/res/SF_MagicCircle.png");
+        loadImage(dir);
         getImageDimensions();
     }
 }
