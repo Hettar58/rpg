@@ -8,7 +8,7 @@ import java.util.List;
 public class Render extends JPanel implements ActionListener {
     private Timer timer;
     private int DELAY;
-    private List<Personnage> persos;
+    private List<Character> persos;
     private List<Enemi> enemis;
     private Background bg;
 
@@ -28,7 +28,7 @@ public class Render extends JPanel implements ActionListener {
     private void draw(Graphics g){
         Graphics2D g2d = (Graphics2D) g;
         g2d.drawImage(bg.getImage(), bg.getX(), bg.getY(), this);
-        for (Personnage perso : persos){
+        for (Character perso : persos){
             g2d.drawString((perso.getPV()+"/"+perso.getPV_max()), perso.getX(), perso.getY()-10);
             g2d.drawImage(perso.getImage(), perso.getX(), perso.getY(), this);
         }
@@ -42,8 +42,8 @@ public class Render extends JPanel implements ActionListener {
         enemis.add(enemi);
     }
 
-    public void addPersonnage(Personnage personnage){
-        persos.add(personnage);
+    public void addPersonnage(Character character){
+        persos.add(character);
     }
 
     @Override

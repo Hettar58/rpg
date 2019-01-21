@@ -13,9 +13,9 @@ public class Enemi extends Sprite {
         getImageDimensions();
     }
 
-    public void attaque(Personnage personnage){
-        int defense = personnage.getDEF();
-        personnage.setDMG(ATK/(100/(100+defense)));
+    public void attaque(Character character){
+        int defense = character.getDEF();
+        character.setDMG(ATK/(100/(100+defense)));
     }
 
     public void setDMG(int DMG){

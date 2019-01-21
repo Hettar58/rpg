@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public class Personnage extends Sprite {
+public class Character extends Sprite {
     private String nom;
     private int niveau;
     private int levelPass;
@@ -18,15 +18,15 @@ public class Personnage extends Sprite {
     private int etat; //0 = normal, 1 = poison, 2 = paralysie, ...
     private int delay; //si jeu en temps réel, délai avant de pouvoir faire une action
 
-    public Personnage(int x, int y){
+    public Character(int x, int y){
         super(x, y);
         PV = 100;
         PV_max = 100;
         ATK = 10;
         DEF = 10;
         EXP = 0;
-        niveau = 0;
-        nom = "Personnage générique";
+        niveau = 1;
+        nom = "Character générique";
         loadImage("src/res/perso1.png");
         getImageDimensions();
     }

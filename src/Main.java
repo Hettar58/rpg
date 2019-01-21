@@ -9,7 +9,7 @@ public class Main extends JFrame {
         Render render = new Render();
         add(render);
 
-        Personnage perso1 = new Personnage(250, 400);
+        Character perso1 = new Character(250, 400);
         Enemi enemi1 = new Enemi(450, 400);
         render.addPersonnage(perso1);
         render.addEnemi(enemi1);
