@@ -33,23 +33,23 @@ public class Entity extends Sprite {
     public void setPV(int nPV){
         this.PV = nPV;
     }
-    public void getPV(){
+    public int getPV(){
         return this.PV;
     }
     public void setSTM(int nSTM){
         this.STM = nSTM;
     }
-    public void getSTM(){
+    public int getSTM(){
         return this.STM;
     }
     public void setATK(int nATK){
         this.ATK = nATK;
     }
-    public void getATK(){
+    public int getATK(){
         return this.ATK;
     }
     public void setDEF(int nDEF){
-        this.DEF = nDEF;z
+        this.DEF = nDEF;
     }
     public int getDEF(){
         return this.DEF;
@@ -57,19 +57,19 @@ public class Entity extends Sprite {
     public void setVIT(int nVIT){
         this.VIT = nVIT;
     }
-    public void getVIT(){
+    public int getVIT(){
         return this.VIT;
     }
     public void setMNA(int nMNA){
         this.MNA = nMNA;
     }
-    public void getMNA(){
+    public int getMNA(){
         return this.MNA;
     }
     public void setLCK(int nLCK){
         this.LCK = nLCK;
     }
-    public void getLCK(){
+    public int getLCK(){
         return this.LCK;
     }
     public void setEtat(int nEtat){
@@ -81,7 +81,7 @@ public class Entity extends Sprite {
     public void setEXP(int nEXP){
         this.EXP = nEXP;
     }
-    public void getEXP(){
+    public int getEXP(){
         return this.EXP;
     }
     }
