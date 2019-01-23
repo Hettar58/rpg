@@ -16,9 +16,10 @@ public class Entity extends Sprite {
     private int niveau;
     private String nom;
 
-    public entite(int x, int y) {
+    public Entity(int x, int y, String dir) {
+        super(x, y);
         PV = 100;
-        mna = 75;
+        MNA = 75;
         STM = 75;
         ATK = 10;
         DEF = 10;
@@ -27,7 +28,7 @@ public class Entity extends Sprite {
         EXP = 0;
         niveau = 1;
         nom = "Nom du personnage";
-        loadImage(String dir);
+        loadImage(dir);
         getImageDimensions();
     }
     public void setPV(int nPV){
@@ -73,10 +74,10 @@ public class Entity extends Sprite {
         return this.LCK;
     }
     public void setEtat(int nEtat){
-        this.Etat = nEtat;
+        this.etat = nEtat;
     }
-    public void getEtat(){
-        return this.Etat;
+    public int getEtat(){
+        return this.etat;
     }
     public void setEXP(int nEXP){
         this.EXP = nEXP;

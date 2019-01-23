@@ -26,15 +26,20 @@ public class Main extends JFrame {
         JLabel playerName = new JLabel(""+perso1.getNom()+": "+perso1.getPV()+" / "+perso1.getPV_max());
         JButton attackButton = new JButton("Attaquer");
         JButton objectsButton = new JButton("Objets");
+        JButton magicButton = new JButton("Magie");
+        JButton escapeButton = new JButton("Fuite");
 
         playerName.setBounds(15, 450, 200, 25);
-        attackButton.setBounds(15, 476, 100, 25);
-        objectsButton.setBounds(15, 510, 100, 25);
+        magicButton.setBounds(120, 510, 100, 25);
+        escapeButton.setBounds(120, 540, 100, 25);
+        attackButton.setBounds(15, 510, 100, 25);
+        objectsButton.setBounds(15, 540, 100, 25);
 
         render.add(playerName);
         render.add(attackButton);
         render.add(objectsButton);
-
+        render.add(magicButton);
+        render.add(escapeButton);
         attackButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

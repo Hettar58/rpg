@@ -1,4 +1,4 @@
-public class Enemi extends Sprite {
+public class Enemi extends Sprite{
     private int PV;
     private int PV_max;
     private int lootExp;
@@ -22,6 +22,13 @@ public class Enemi extends Sprite {
 
     public void setDMG(int DMG){
         PV = PV - DMG;
+        try{
+            x = x - 50;
+            Thread.currentThread().sleep(500);
+            x = x+50;
+        }catch (InterruptedException e){
+            System.out.println(e.getMessage());
+        }
         System.out.println(PV);
         System.out.println(DMG);
     }
