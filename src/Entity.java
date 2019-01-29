@@ -1,22 +1,22 @@
 import javax.swing.*;
 
-public class Entity extends Sprite {
+public class Entity extends AnimatedSprite {
 
-    private int PV;
-    private int PV_max;
-    private int EXP;
-    private int MNA;
-    private int ATK;
-    private int VIT;
-    private int DEF;
-    private int STM;
-    private int LCK;
-    private int etat;
-    private int delay;
-    private int niveau;
-    private String nom;
+    protected int PV;
+    protected int PV_max;
+    protected int EXP;
+    protected int MNA;
+    protected int ATK;
+    protected int VIT;
+    protected int DEF;
+    protected int STM;
+    protected int LCK;
+    protected int etat;
+    protected int delay;
+    protected int niveau;
+    protected String nom;
 
-    public Entity(int x, int y, String dir) {
+    public Entity(int x, int y) {
         super(x, y);
         PV = 100;
         MNA = 75;
@@ -28,15 +28,25 @@ public class Entity extends Sprite {
         EXP = 0;
         niveau = 1;
         nom = "Nom du personnage";
-        loadImage(dir);
-        getImageDimensions();
     }
+
+    public void attaque(Enemi enemi){
+        int defense = enemi.getDEF();
+        enemi.setDMG(ATK/(100/(50+defense)));
+    }
+
+    public void setDMG(int DMG){
+        PV = PV - DMG;
+    }
+
     public void setPV(int nPV){
         this.PV = nPV;
     }
     public int getPV(){
         return this.PV;
     }
+    public void setPV_max(int nPV_max){this.PV_max = nPV_max;}
+    public int getPV_max(){return this.PV_max;}
     public void setSTM(int nSTM){
         this.STM = nSTM;
     }
@@ -85,5 +95,7 @@ public class Entity extends Sprite {
     public int getEXP(){
         return this.EXP;
     }
+    public void setNom(String nNom){this.nom = nNom;}
+    public String getNom(){return this.nom;}
     }
 

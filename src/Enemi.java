@@ -4,6 +4,7 @@ public class Enemi extends Sprite{
     private int lootExp;
     private int ATK;
     private int DEF;
+    private Animation anim;
 
     public Enemi (int x, int y){
         super(x, y);
@@ -11,8 +12,9 @@ public class Enemi extends Sprite{
         PV_max = 200;
         ATK = 5;
         DEF = 10;
+        anim = new Animation();
         loadImage("src/res/enemi1.png");
-        getImageDimensions();
+
     }
 
     public void attaque(Character character){
@@ -22,15 +24,7 @@ public class Enemi extends Sprite{
 
     public void setDMG(int DMG){
         PV = PV - DMG;
-        try{
-            x = x - 50;
-            Thread.currentThread().sleep(500);
-            x = x+50;
-        }catch (InterruptedException e){
-            System.out.println(e.getMessage());
-        }
-        System.out.println(PV);
-        System.out.println(DMG);
+
     }
 
     public int getDEF(){return DEF;}

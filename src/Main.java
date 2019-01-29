@@ -1,19 +1,27 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class Main extends JFrame {
+    Render render;
+    LogPanel actionLog;
+    ControlPanel fightUI;
+    Enemi enemi1;
+    Character perso1;
+    String playerAction;
+    String cpuAction;
+
     public Main(){
         initUI();
     }
     private void initUI(){
-        Render render = new Render();
+        perso1 = new Character(280, 250);
+        enemi1 = new Enemi(480, 250);
+        fightUI = new ControlPanel(0.3f, 1f, perso1, enemi1, this);
+        actionLog = new LogPanel(0.3f, 1.0f);
+        render = new Render();
         render.setLayout(null);
         add(render);
 
-        Character perso1 = new Character(280, 250);
-        Enemi enemi1 = new Enemi(480, 250);
         render.addPersonnage(perso1);
         render.addEnemi(enemi1);
         setTitle("RPG");
@@ -22,30 +30,9 @@ public class Main extends JFrame {
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-
-        JLabel playerName = new JLabel(""+perso1.getNom()+": "+perso1.getPV()+" / "+perso1.getPV_max());
-        JButton attackButton = new JButton("Attaquer");
-        JButton objectsButton = new JButton("Objets");
-        JButton magicButton = new JButton("Magie");
-        JButton escapeButton = new JButton("Fuite");
-
-        playerName.setBounds(15, 450, 200, 25);
-        magicButton.setBounds(120, 510, 100, 25);
-        escapeButton.setBounds(120, 540, 100, 25);
-        attackButton.setBounds(15, 510, 100, 25);
-        objectsButton.setBounds(15, 540, 100, 25);
-
-        render.add(playerName);
-        render.add(attackButton);
-        render.add(objectsButton);
-        render.add(magicButton);
-        render.add(escapeButton);
-        attackButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                perso1.attaque(enemi1);
-            }
-        });
+        fightUI.setPersonnage(perso1);
+        render.add(fightUI);
+        render.add(actionLog);
     }
 
     public static void main(String[] args){
@@ -54,4 +41,13 @@ public class Main extends JFrame {
             app.setVisible(true);
         });
     }
+
+    public void tour(){
+        if (playerAction.equals("attaque")){
+            actionLog.updateLog(perso1.getNom()+" attaque !");
+            perso1.attaque(enemi1);
+        }
+    }
+
+    public void setPlayerAction(String action){this.playerAction = action;}
 }

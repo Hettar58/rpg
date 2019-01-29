@@ -5,14 +5,15 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Render extends JPanel implements ActionListener {
+public class Render extends JPanel implements ActionListener{
     private Timer timer;
     private int DELAY;
     private List<Character> persos;
     private List<Enemi> enemis;
     private Background bg;
     private Background bg2;
-
+    private long startTime;
+    private long currTime;
     public Render(){
         initRender();
     }
@@ -24,6 +25,7 @@ public class Render extends JPanel implements ActionListener {
         persos = new ArrayList<>();
         enemis = new ArrayList<>();
         setBackground(Color.white);
+        DELAY = 20;
         timer = new Timer(DELAY, this);
         timer.start();
     }
@@ -33,6 +35,7 @@ public class Render extends JPanel implements ActionListener {
         g2d.drawImage(bg.getImage(), bg.getX(), bg.getY(), this);
         g2d.drawImage(bg2.getImage(), bg.getX(), bg.getY(), this);
         for (Character perso : persos){
+
             g2d.setColor(Color.GREEN);
             g2d.drawString((perso.getPV()+"/"+perso.getPV_max()), perso.getX()-5, perso.getY()-10);
             g2d.drawImage(perso.getImage(), perso.getX(), perso.getY(), this);
@@ -59,9 +62,13 @@ public class Render extends JPanel implements ActionListener {
         draw(g);
         Toolkit.getDefaultToolkit().sync();
     }
-
     @Override
     public void actionPerformed(ActionEvent e){
+        long elapsedTime = System.currentTimeMillis() - currTime;
+        currTime += elapsedTime;
+        for(Character perso : persos) {
+            perso.updateAnim(elapsedTime);
+        }
         repaint();
     }
 }

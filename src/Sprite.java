@@ -20,12 +20,15 @@ public class Sprite {
         this.height = this.image.getHeight(null);
     }
 
+    protected Image getImage(){
+        return this.image;
+    }
+
     protected void loadImage(String dir){
         ImageIcon ii = new ImageIcon(dir);
         this.image = ii.getImage();
     }
 
-    public Image getImage(){return this.image; }
     public int getX(){return x;}
     public int getY(){return y;}
     public boolean isVisible(){return visible;}

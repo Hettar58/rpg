@@ -1,0 +1,18 @@
+Structure d'Héritage:
+
+JFrame
+--> Main
+
+JPanel
+--> Render
+--> TransparentPane
+    -->ControlPanel
+    -->LogPanel
+
+Sprite
+-->Background
+-->AnimatedSprite
+   -->Entity
+      -->Character
+
+Animation
