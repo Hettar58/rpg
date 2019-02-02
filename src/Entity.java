@@ -2,6 +2,7 @@ import javax.swing.*;
 
 public class Entity extends AnimatedSprite {
 
+	protected int ADMG;
     protected int PV;
     protected int PV_max;
     protected int EXP;
@@ -18,6 +19,7 @@ public class Entity extends AnimatedSprite {
 
     public Entity(int x, int y) {
         super(x, y);
+        ADMG = 0;
         PV = 100;
         MNA = 75;
         STM = 75;
@@ -31,11 +33,22 @@ public class Entity extends AnimatedSprite {
     }
 
     public void attaque(Enemi enemi){
-        int defense = enemi.getDEF();
-        enemi.setDMG(ATK/(100/(50+defense)));
+    	int Crit = (int)(Math.random()*100);
+    	if(Crit > 4) {
+    		int defense = enemi.getDEF();
+    		enemi.setDMG(ATK/(100/(50+defense)));
+    	}
+    	if(Crit <= 4) {
+            int defense = enemi.getDEF();
+            enemi.setDMG(ATK+5/(100/(50+defense)));
+        	}
     }
-
+    
+    public int getADMG() {
+    	return ADMG;
+    }
     public void setDMG(int DMG){
+    	ADMG = DMG;
         PV = PV - DMG;
     }
 
@@ -97,5 +110,18 @@ public class Entity extends AnimatedSprite {
     }
     public void setNom(String nNom){this.nom = nNom;}
     public String getNom(){return this.nom;}
+    
+    public void attaqueE(Character joueur){
+    	int Crit = (int)(Math.random()*100);
+    	if(Crit > 4) {
+    		int defense = joueur.getDEF();
+    		joueur.setDMG(ATK/(100/(50+defense)));
+    	}
+    	if(Crit <= 4) {
+            int defense = joueur.getDEF();
+            joueur.setDMG(ATK+5/(100/(50+defense)));
+        	}
+    }
+
     }
 

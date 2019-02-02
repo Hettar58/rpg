@@ -45,11 +45,31 @@ public class Main extends JFrame {
     public void tour(){
 	if(perso1.getPV() > 0 && enemi1.getPV() > 0){
         if (playerAction.equals("attaque")){
-            actionLog.updateLog(perso1.getNom()+" attaque !");
-            perso1.attaque(enemi1);
-            actionLog.updateLog(perso1.getNom()+" inflige 10 DMG Ã  l'enemi");
+        	if(perso1.getVIT() >= enemi1.getVIT()) {
+        		actionLog.updateLog(perso1.getNom()+" attaque !");
+        		perso1.attaque(enemi1);
+        		actionLog.updateLog(perso1.getNom()+" inflige"+ perso1.getADMG() +"DMG Ã  l'enemi");
+        		actionLog.updateLog("l'enemie Attaque !");
+        		enemi1.attaqueE(perso1);
+        		actionLog.updateLog("l'enemie a infligé "+ enemi1.getADMG() +" Ã  l'enemi");
+        	}
+            if(perso1.getVIT() < enemi1.getVIT()) {
+            	actionLog.updateLog("l'enemie attaque !");
+            	enemi1.attaqueE(perso1);
+            	actionLog.updateLog("l'enemie a infligé "+ enemi1.getADMG() +" Ã  l'enemi");
+            	actionLog.updateLog(perso1.getNom()+" attaque !");
+        		perso1.attaque(enemi1);
+        		actionLog.updateLog(perso1.getNom()+" inflige"+ perso1.getADMG() +"DMG Ã  l'enemi");
+            }
+            
         }
 
+	}
+	if(perso1.getPV() <= 0) {
+		System.out.println("Game over");
+	}
+	if(enemi1.getPV() <= 0) {
+		System.out.println("Gagné");
 	}
     }
 
