@@ -1,4 +1,5 @@
 public class Character extends Entity{
+    private String item;
     public Character(int x, int y){
         super(x, y);
         PV = 100;
@@ -12,5 +13,13 @@ public class Character extends Entity{
         loadImage("src/res/perso1_state2.png", 100);
         loadImage("src/res/perso1_state1.png", 100);
         loadImage("src/res/perso1_state3.png", 100);
+    }
+
+    public void setItem(String item){
+        this.item = item;
+    }
+
+    public String getItem(){
+        return this.item;
     }
 }

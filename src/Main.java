@@ -25,7 +25,7 @@ public class Main extends JFrame {
         render.addPersonnage(perso1);
         render.addEnemi(enemi1);
         setTitle("RPG");
-        setSize(800, 600);
+        setSize(800, 630);
         setLocationRelativeTo(null);
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -43,12 +43,13 @@ public class Main extends JFrame {
     }
 
     public void tour(){
-	if(perso1.getPV() > 0 || enemi1.getPV() > 0){
+	if(perso1.getPV() > 0 && enemi1.getPV() > 0){
         if (playerAction.equals("attaque")){
             actionLog.updateLog(perso1.getNom()+" attaque !");
             perso1.attaque(enemi1);
             actionLog.updateLog(perso1.getNom()+" inflige 10 DMG à l'enemi");
         }
+
 	}
     }
 
