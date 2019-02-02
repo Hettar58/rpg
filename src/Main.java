@@ -64,6 +64,10 @@ public class Main extends JFrame {
             
         }
 
+        if (playerAction.equals("objet")){
+
+        }
+
 	}
 	if(perso1.getPV() <= 0) {
 		System.out.println("Game over");

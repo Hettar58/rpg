@@ -53,7 +53,13 @@ public class Entity extends AnimatedSprite {
     }
 
     public void setPV(int nPV){
-        this.PV = nPV;
+        if (nPV > this.PV_max){
+            this.PV = this.PV_max;
+        }
+        else{
+            this.PV = nPV;
+        }
+
     }
     public int getPV(){
         return this.PV;
