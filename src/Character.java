@@ -7,6 +7,7 @@ public class Character extends Entity{
         DEF = 10;
         EXP = 0;
         niveau = 0;
+        VIT = 10;
         nom = "Joueur 1";
         loadImage("src/res/perso1_state1.png", 100);
         loadImage("src/res/perso1_state2.png", 100);
