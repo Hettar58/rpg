@@ -43,13 +43,13 @@ public class Main extends JFrame {
     }
 
     public void tour(){
-	while(perso1.getPV >= 0 || enemi1.getPV <=0){
+	if(perso1.getPV() > 0 || enemi1.getPV() > 0){
         if (playerAction.equals("attaque")){
             actionLog.updateLog(perso1.getNom()+" attaque !");
             perso1.attaque(enemi1);
             actionLog.updateLog(perso1.getNom()+" inflige 10 DMG à l'enemi");
         }
-		}
+	}
     }
 
     public void setPlayerAction(String action){this.playerAction = action;}
