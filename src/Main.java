@@ -1,6 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
-
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.TimerTask.*;
+import java.util.Timer.*;
+import java.util.TimerTask;
 public class Main extends JFrame {
     Render render;
     LogPanel actionLog;
@@ -43,34 +47,81 @@ public class Main extends JFrame {
     }
 
     public void tour(){
+    	final javax.swing.Timer timer;
 	if(perso1.getPV() > 0 && enemi1.getPV() > 0){
         if (playerAction.equals("attaque")){
         	if(perso1.getVIT() >= enemi1.getVIT()) {
         		actionLog.updateLog(perso1.getNom()+" attaque !");
         		perso1.attaque(enemi1);
         		actionLog.updateLog(perso1.getNom()+" inflige"+ perso1.getADMG() +"DMG Ã  l'enemi");
-        		actionLog.updateLog("l'enemie Attaque !");
-        		enemi1.attaqueE(perso1);
-        		actionLog.updateLog("l'enemie a infligé "+ enemi1.getADMG() +" Ã  l'enemi");
+        		ActionListener action = new ActionListener (){
+        			 public void actionPerformed(ActionEvent arg0) {
+        		if (enemi1.getPV() > 0) {
+        			actionLog.updateLog("l'enemie Attaque !");
+        			enemi1.attaqueE(perso1);
+        			actionLog.updateLog("l'enemie a infligé "+ enemi1.getADMG() +" Ã  l'enemi");
+        			Timer timer = (Timer) arg0.getSource();
+        			timer.stop();
+        		}
+        			 }
+        		};
+        		timer = new javax.swing.Timer(2000,action);
+        		timer.start();
+        		if(perso1.getPV() <= 0) {
+        			actionLog.updateLog("Game over");
+        		}
+        		if(enemi1.getPV() <= 0) {
+        			actionLog.updateLog("Gagné");
+        		}
+        		
         	}
+        	final javax.swing.Timer timer2;
             if(perso1.getVIT() < enemi1.getVIT()) {
             	actionLog.updateLog("l'enemie attaque !");
             	enemi1.attaqueE(perso1);
             	actionLog.updateLog("l'enemie a infligé "+ enemi1.getADMG() +" Ã  l'enemi");
-            	actionLog.updateLog(perso1.getNom()+" attaque !");
-        		perso1.attaque(enemi1);
-        		actionLog.updateLog(perso1.getNom()+" inflige"+ perso1.getADMG() +"DMG Ã  l'enemi");
-            }
+            	ActionListener action1 = new ActionListener (){
+       			 public void actionPerformed(ActionEvent arg0) {
+            	if (perso1.getPV() > 0) {
+            		actionLog.updateLog(perso1.getNom()+" attaque !");
+        			perso1.attaque(enemi1);
+        			actionLog.updateLog(perso1.getNom()+" inflige"+ perso1.getADMG() +"DMG Ã  l'enemi");
+        			Timer timer2 = (Timer) arg0.getSource();
+        			timer2.stop();
+        		}
+        			 }
+        		};
+        		timer2 = new javax.swing.Timer(2000,action1);
+        		timer2.start();
+        		if(perso1.getPV() <= 0) {
+        			actionLog.updateLog("Game over");
+        		}
+        		if(enemi1.getPV() <= 0) {
+        			actionLog.updateLog("Gagné");
+        		}
+            	}
             
+        }
+        if (playerAction.equals("objet")) {
+        	if(perso1.getItem().equals("Potion verte")) {
+        		perso1.setPV(perso1.getPV()+10);
+        	}
+        	if(perso1.getItem().equals("Potion rouge")) {
+        		perso1.setPV(perso1.getPV()+50);
+        	}
+        	if(perso1.getItem().equals("Potion bleu")) {
+        		perso1.setMNA(perso1.getMNA()+25);
+        	}
+        	if(perso1.getItem().equals("Antidote")) {
+        		perso1.setEtat(0);
+        	}
+        	actionLog.updateLog("l'enemie Attaque !");
+			enemi1.attaqueE(perso1);
+			actionLog.updateLog("l'enemie a infligé "+ enemi1.getADMG() +" Ã  l'enemi"); 
         }
 
 	}
-	if(perso1.getPV() <= 0) {
-		System.out.println("Game over");
-	}
-	if(enemi1.getPV() <= 0) {
-		System.out.println("Gagné");
-	}
+	
     }
 
     public void setPlayerAction(String action){this.playerAction = action;}

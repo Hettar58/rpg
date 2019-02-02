@@ -3,7 +3,7 @@ public class Enemi extends Entity{
         super(x, y);
         PV = 200;
         PV_max = 200;
-        ATK = 5;
+        ATK = 10;
         DEF = 10;
         VIT = 10;
         loadImage("src/res/enemi1_state1.png", 100);
