@@ -69,6 +69,9 @@ public class Render extends JPanel implements ActionListener{
         for(Character perso : persos) {
             perso.updateAnim(elapsedTime);
         }
+        for(Enemi enemi : enemis){
+            enemi.updateAnim(elapsedTime);
+        }
         repaint();
     }
 }
