@@ -120,6 +120,10 @@ public class Main extends JFrame {
 			actionLog.updateLog("l'enemie a infligé "+ enemi1.getADMG() +" Ã  l'enemi"); 
         }
 
+        if (playerAction.equals("objet")){
+
+        }
+
 	}
 	
     }
