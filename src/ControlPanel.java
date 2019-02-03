@@ -98,6 +98,7 @@ public class ControlPanel extends TransparentPane {
         attackButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+            	
                 main.setPlayerAction("attaque");
                 main.tour();
             }
