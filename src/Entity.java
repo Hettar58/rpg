@@ -37,10 +37,12 @@ public class Entity extends AnimatedSprite {
     	if(Crit > 4) {
     		int defense = enemi.getDEF();
     		enemi.setDMG(ATK/(100/(50+defense)));
+    		ADMG = (ATK/(100/(50+defense)));
     	}
     	if(Crit <= 4) {
             int defense = enemi.getDEF();
             enemi.setDMG(ATK+5/(100/(50+defense)));
+            ADMG = (ATK/(100/(50+defense)));
         	}
     }
     
@@ -48,7 +50,6 @@ public class Entity extends AnimatedSprite {
     	return ADMG;
     }
     public void setDMG(int DMG){
-    	ADMG = DMG;
         PV = PV - DMG;
     }
 
@@ -122,10 +123,12 @@ public class Entity extends AnimatedSprite {
     	if(Crit > 4) {
     		int defense = joueur.getDEF();
     		joueur.setDMG(ATK/(100/(50+defense)));
+    		ADMG = (ATK/(100/(50+defense)));
     	}
     	if(Crit <= 4) {
             int defense = joueur.getDEF();
             joueur.setDMG(ATK+5/(100/(50+defense)));
+            ADMG = (ATK+5/(100/(50+defense)));
         	}
     }
 
