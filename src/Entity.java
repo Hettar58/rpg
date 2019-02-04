@@ -32,7 +32,7 @@ public class Entity extends AnimatedSprite {
         nom = "Nom du personnage";
     }
 
-    public void attaque(Enemi enemi){
+    public void attaque(Entity enemi){
     	int Crit = (int)(Math.random()*100);
     	if(Crit > 4) {
     		int defense = enemi.getDEF();
@@ -49,7 +49,12 @@ public class Entity extends AnimatedSprite {
     }
     public void setDMG(int DMG){
     	ADMG = DMG;
-        PV = PV - DMG;
+        if (PV - DMG < 0){
+            PV = 0;
+        }
+        else{
+            PV = PV - DMG;
+        }
     }
 
     public void setPV(int nPV){
@@ -116,18 +121,5 @@ public class Entity extends AnimatedSprite {
     }
     public void setNom(String nNom){this.nom = nNom;}
     public String getNom(){return this.nom;}
-    
-    public void attaqueE(Character joueur){
-    	int Crit = (int)(Math.random()*100);
-    	if(Crit > 4) {
-    		int defense = joueur.getDEF();
-    		joueur.setDMG(ATK/(100/(50+defense)));
-    	}
-    	if(Crit <= 4) {
-            int defense = joueur.getDEF();
-            joueur.setDMG(ATK+5/(100/(50+defense)));
-        	}
-    }
-
     }
 
