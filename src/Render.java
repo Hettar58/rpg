@@ -8,8 +8,7 @@ import java.util.List;
 public class Render extends JPanel implements ActionListener{
     private Timer timer;
     private int DELAY;
-    private List<Character> persos;
-    private List<Enemi> enemis;
+    private List<Entity> entites;
     private Background bg;
     private Background bg2;
     private long startTime;
@@ -22,55 +21,40 @@ public class Render extends JPanel implements ActionListener{
         System.out.println("created render");
         bg = new Background(0, 0, "src/res/SF_MagicCircle.png");
         bg2 = new Background(0, 0, "src/res/SF_GothicRoom.png");
-        persos = new ArrayList<>();
-        enemis = new ArrayList<>();
+        entites = new ArrayList<>();
         setBackground(Color.white);
         DELAY = 20;
         timer = new Timer(DELAY, this);
         timer.start();
     }
 
-    private void draw(Graphics g){
+    private synchronized void draw(Graphics g){
         Graphics2D g2d = (Graphics2D) g;
         g2d.drawImage(bg.getImage(), bg.getX(), bg.getY(), this);
         g2d.drawImage(bg2.getImage(), bg.getX(), bg.getY(), this);
-        for (Character perso : persos){
-
+        for (Entity entite : entites){
             g2d.setColor(Color.GREEN);
-            g2d.drawString((perso.getPV()+"/"+perso.getPV_max()), perso.getX()-5, perso.getY()-10);
-            g2d.drawImage(perso.getImage(), perso.getX(), perso.getY(), this);
-        }
-
-        for(Enemi enemi : enemis){
-            g2d.setColor(Color.GREEN);
-            g2d.drawString((enemi.getPV()+"/"+enemi.getPV_max()), enemi.getX()-5, enemi.getY()-10);
-            g2d.drawImage(enemi.getImage(), enemi.getX(), enemi.getY(), this);
+            g2d.drawString((entite.getPV()+"/"+entite.getPV_max()), entite.getX()-5, entite.getY()-10);
+            g2d.drawImage(entite.getImage(), entite.getX(), entite.getY(), this);
         }
     }
 
-    public void addEnemi(Enemi enemi){
-        enemis.add(enemi);
-    }
-
-    public void addPersonnage(Character character){
-        persos.add(character);
+    public void addEntity(Entity entite){
+        entites.add(entite);
     }
 
     @Override
-    public void paintComponent(Graphics g){
+    public synchronized void paintComponent(Graphics g){
         super.paintComponent(g);
         draw(g);
         Toolkit.getDefaultToolkit().sync();
     }
     @Override
-    public void actionPerformed(ActionEvent e){
+    public synchronized void actionPerformed(ActionEvent e){
         long elapsedTime = System.currentTimeMillis() - currTime;
         currTime += elapsedTime;
-        for(Character perso : persos) {
-            perso.updateAnim(elapsedTime);
-        }
-        for(Enemi enemi : enemis){
-            enemi.updateAnim(elapsedTime);
+        for(Entity entite : entites){
+            entite.updateAnim(elapsedTime);
         }
         repaint();
     }
