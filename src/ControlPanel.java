@@ -100,7 +100,7 @@ public class ControlPanel extends TransparentPane {
             public void actionPerformed(ActionEvent e) {
             	
                 main.setPlayerAction("attaque");
-                main.tour();
+                main.tour(0);
             }
         });
 
@@ -142,7 +142,7 @@ public class ControlPanel extends TransparentPane {
             public void actionPerformed(ActionEvent e) {
                 personnage.setItem("Potion verte");
                 main.setPlayerAction("objet");
-                main.tour();
+                main.tour(0);
             }
         });
 
@@ -151,7 +151,7 @@ public class ControlPanel extends TransparentPane {
             public void actionPerformed(ActionEvent e) {
                 personnage.setItem("Potion Bleue");
                 main.setPlayerAction("objet");
-                main.tour();
+                main.tour(0);
             }
         });
 
@@ -160,7 +160,7 @@ public class ControlPanel extends TransparentPane {
             public void actionPerformed(ActionEvent e) {
                 personnage.setItem("Potion rouge");
                 main.setPlayerAction("objet");
-                main.tour();
+                main.tour(0);
             }
         });
         antidote.addActionListener(new ActionListener() {
@@ -168,7 +168,7 @@ public class ControlPanel extends TransparentPane {
             public void actionPerformed(ActionEvent e) {
                 personnage.setItem("Antidote");
                 main.setPlayerAction("objet");
-                main.tour();
+                main.tour(0);
             }
         });
     }
