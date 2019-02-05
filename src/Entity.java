@@ -15,6 +15,7 @@ public class Entity extends AnimatedSprite {
     protected int etat;
     protected int delay;
     protected int niveau;
+    protected int niveausup;
     protected String nom;
 
     public Entity(int x, int y) {
@@ -29,6 +30,7 @@ public class Entity extends AnimatedSprite {
         LCK = 8;
         EXP = 0;
         niveau = 1;
+        niveausup=1;
         nom = "Nom du personnage";
     }
 
@@ -117,6 +119,9 @@ public class Entity extends AnimatedSprite {
     }
     public void setEXP(int nEXP){
         this.EXP = nEXP;
+        if(this.EXP >= 200) {
+        	niveausup++;
+        }
     }
     public int getEXP(){
         return this.EXP;

@@ -11,14 +11,14 @@ public class Main extends JFrame implements MouseListener {
     private Character perso1;
     private String playerAction;
     private String cpuAction = "attaque";
-    private boolean fin;
-    private int state;
+    private boolean fin = true;
+    private int state=0;
+    private int state2=0;
 
     public Main(){
         initUI();
     }
     private void initUI(){
-        fin = true;
         perso1 = new Character(280, 250);
         enemi1 = new Enemi(480, 250);
         fightUI = new ControlPanel(0.3f, 1f, perso1, enemi1, this);
@@ -50,38 +50,59 @@ public class Main extends JFrame implements MouseListener {
 
     public void mouseClicked(MouseEvent e){
         System.out.println("clic");
-        if (fin == false){
-
-            if(state <= 2){
-                state++;
-                System.out.println(state);
-            }
-            tour(state);
+        if(fin == false) {
+        	int a,b;
+        	a = getstate();
+        	b = getstate2();
+        	System.out.println(a+" "+b);
+        	fin = true;
+            tour(a,b);
         }
     }
-    public void tour(int state){
-        System.out.println("f");
-        if (fin == true){
-            fin = false;
-        }
-        if (fin == false){
-            if(perso1.getPV() <= 0) {
-                actionLog.updateLog("Game over");
-            }
-            if(enemi1.getPV() <= 0) {
-                actionLog.updateLog("Gagné");
-            }
+    public void tour(int sta,int sta2){
+
+        if (fin){
+        	fin =false;
+        	
             if (perso1.getPV() > 0 && enemi1.getPV() > 0){
-                if (state == 0){ //ACTION JOUEUR
+                
                     if (playerAction.equals("attaque")){
-                        actionLog.updateLog(perso1.getNom()+" attaque !");
-                        perso1.attaque(enemi1);
-                        System.out.println("perso attaque");
-                        actionLog.updateLog(perso1.getNom()+" inflige"+ perso1.getADMG() +"DMG Ã  l'enemi");
+                    	if(sta == 0 && sta2 == 0) {
+                    		actionLog.updateLog(perso1.getNom()+" attaque !");
+                    		setstate(0,1);
+                    	}
+                        if(sta == 0 && sta2 == 1) { 
+                        	perso1.attaque(enemi1);
+                        	setstate(1,0); // passage au tour de l'ennemie.
+                        	actionLog.updateLog(perso1.getNom()+" inflige "+ perso1.getADMG() +" DMG Ã  l'enemi");
+                        }
+                        if(perso1.getPV() <= 0) {
+                    		setstate(0,0);
+                    		if(sta == 0 && sta2 == 0)
+                    			actionLog.updateLog("Game over");
+                        }
+                        if(enemi1.getPV() <= 0) {
+                        	setstate(3,2);
+                        	if (sta == 3 && sta2 == 2) {
+                        		actionLog.updateLog("Gagné");
+                        		setstate(3,1);
+                        	}
+                        	if (sta == 3 && sta2 == 1) {
+                        		actionLog.updateLog("vous avez gagné "+enemi1.getEXP());
+                        		setstate(3,0);
+                        		if(perso1.niveau < perso1.niveausup) {
+                        			if(sta == 3 && sta2 == 0) {
+                        			actionLog.updateLog("Vous êtes monté au niveau "+ perso1.niveausup);
+                        			perso1.niveau = perso1.niveausup;
+                        			}
+                        		}
+                        	}
+                        		
+                        }
                     }
                     if (playerAction.equals("objet")) {
                         if(perso1.getItem().equals("Potion verte")) {
-                            perso1.setPV(perso1.getPV()+10);
+                            perso1.setPV(perso1.getPV()+20);
                         }
                         if(perso1.getItem().equals("Potion rouge")) {
                             perso1.setPV(perso1.getPV()+50);
@@ -92,28 +113,46 @@ public class Main extends JFrame implements MouseListener {
                         if(perso1.getItem().equals("Antidote")) {
                             perso1.setEtat(0);
                         }
+                        perso1.setItem("");
+                        setstate(1,0);
                     }
 
                 }
-                if (state == 1){
+                if (enemi1.getPV() > 0 && perso1.getPV() > 0 ){
                     if (cpuAction.equals("attaque")){
-                        actionLog.updateLog("l'enemie attaque !");
-                        enemi1.attaque(perso1);
-                        System.out.println("enemi attaque");
-                        actionLog.updateLog("l'enemie a infligé "+ enemi1.getADMG() +" Ã  l'enemi");
+                    	if(sta == 1 && sta2 == 0) {
+                    		actionLog.updateLog("l'enemie attaque !");
+                        	enemi1.attaque(perso1);
+                        	setstate(1,1);
+                    	}
+                        if(sta == 1 && sta2 == 1) {
+                        	actionLog.updateLog("l'enemie a infligé "+ enemi1.getADMG() +" Ã  l'enemi");
+                        	setstate(2,0);
+                        }
+                        
                     }
                 }
-                if (state == 2){
-                    state = 0;
+                if (sta == 2 && sta2 == 0){
                     fin = true;
+                    actionLog.updateLog("C'est votre tour");
+                    setstate(0,0);
                 }
             }
         }
-    }
+    
 
     public void setPlayerAction(String action){this.playerAction = action;}
     public void setCpuAction(String action){this.cpuAction = action;}
-    public void setFin(boolean fin){this.fin = fin;}
+    public void setstate(int state,int state2) {
+    	this.state = state;
+    	this.state2 = state2;
+    }
+    public int getstate() {
+    	return state;
+    }
+    public int getstate2() {
+    	return state2;
+    }
     public void mousePressed(MouseEvent e){ }
     public void mouseReleased(MouseEvent e){}
     public void mouseEntered(MouseEvent e){}

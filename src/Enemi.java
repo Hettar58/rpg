@@ -6,6 +6,7 @@ public class Enemi extends Entity{
         ATK = 10;
         DEF = 10;
         VIT = 10;
+        EXP = 200;
         loadImage("src/res/enemi1_state1.png", 100);
         loadImage("src/res/enemi1_state2.png", 100);
         loadImage("src/res/enemi1_state3.png", 100);
