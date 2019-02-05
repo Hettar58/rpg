@@ -1,24 +1,24 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.TimerTask.*;
-import java.util.Timer.*;
-import java.util.TimerTask;
-public class Main extends JFrame {
-    Render render;
-    LogPanel actionLog;
-    ControlPanel fightUI;
-    Enemi enemi1;
-    Character perso1;
-    String playerAction;
-    String cpuAction = "attaque";
-    boolean fin=true;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
+public class Main extends JFrame implements MouseListener {
+    private Render render;
+    private LogPanel actionLog;
+    private ControlPanel fightUI;
+    private Enemi enemi1;
+    private Character perso1;
+    private String playerAction;
+    private String cpuAction = "attaque";
+    private boolean fin;
+    private int state;
 
     public Main(){
         initUI();
     }
     private void initUI(){
+        fin = true;
         perso1 = new Character(280, 250);
         enemi1 = new Enemi(480, 250);
         fightUI = new ControlPanel(0.3f, 1f, perso1, enemi1, this);
@@ -38,6 +38,7 @@ public class Main extends JFrame {
         fightUI.setPersonnage(perso1);
         render.add(fightUI);
         render.add(actionLog);
+        fightUI.addMouseListener(this);
     }
 
     public static void main(String[] args){
@@ -47,80 +48,74 @@ public class Main extends JFrame {
         });
     }
 
-    public void tour(){
+    public void mouseClicked(MouseEvent e){
+        System.out.println("clic");
+        if (fin == false){
 
-        if(fin) {
+            if(state <= 2){
+                state++;
+                System.out.println(state);
+            }
+            tour(state);
+        }
+    }
+    public void tour(int state){
+        System.out.println("f");
+        if (fin == true){
             fin = false;
-            if(perso1.getPV() > 0 && enemi1.getPV() > 0){
-                if (playerAction.equals("attaque")){
-                    if(perso1.getVIT() >= enemi1.getVIT()) {
-                        actionLog.updateLog(perso1.getNom()+" attaque !");
-                        perso1.attaque(enemi1);
-                        actionLog.updateLog(perso1.getNom()+" inflige"+ perso1.getADMG() +"DMG Ã  l'enemi");
-                    }
-                }
-
-                if(perso1.getVIT() < enemi1.getVIT()) {
-                    actionLog.updateLog("l'enemie attaque !");
-                    enemi1.attaque(perso1);
-                    actionLog.updateLog("l'enemie a infligé "+ enemi1.getADMG() +" Ã  l'enemi");
-                    final javax.swing.Timer timer2;
-                    ActionListener action1 = new ActionListener (){
-                        public void actionPerformed(ActionEvent arg0) {
-                            if (perso1.getPV() > 0) {
-                                actionLog.updateLog(perso1.getNom()+" attaque !");
-                                perso1.attaque(enemi1);
-                                actionLog.updateLog(perso1.getNom()+" inflige"+ perso1.getADMG() +"DMG Ã  l'enemi");
-                                Timer timer2 = (Timer) arg0.getSource();
-                                timer2.stop();
-                                fin = true;
-                            }
-                        }
-                    };
-                    timer2 = new javax.swing.Timer(2000,action1);
-                    timer2.start();
-                }
-            }
-            if (playerAction.equals("objet")) {
-                if(perso1.getItem().equals("Potion verte")) {
-                    perso1.setPV(perso1.getPV()+10);
-                }
-                if(perso1.getItem().equals("Potion rouge")) {
-                    perso1.setPV(perso1.getPV()+50);
-                }
-                if(perso1.getItem().equals("Potion bleu")) {
-                    perso1.setMNA(perso1.getMNA()+25);
-                }
-                if(perso1.getItem().equals("Antidote")) {
-                    perso1.setEtat(0);
-                }
-            }
-            if (cpuAction.equals("attaque")){
-                final javax.swing.Timer timer;
-                ActionListener action = new ActionListener (){
-                    public void actionPerformed(ActionEvent arg0) {
-                        if (enemi1.getPV() > 0) {
-                            actionLog.updateLog("l'enemi attaque !");
-                            enemi1.attaque(perso1);
-                            actionLog.updateLog("l'enemi a infligé "+ enemi1.getADMG() +" au joueur");
-                            Timer timer = (Timer) arg0.getSource();
-                            timer.stop();
-                            fin = true;
-                        }
-                    }
-                };
-                timer = new javax.swing.Timer(2000,action);
-                timer.start();
-            }
+        }
+        if (fin == false){
             if(perso1.getPV() <= 0) {
                 actionLog.updateLog("Game over");
             }
             if(enemi1.getPV() <= 0) {
                 actionLog.updateLog("Gagné");
             }
+            if (perso1.getPV() > 0 && enemi1.getPV() > 0){
+                if (state == 0){ //ACTION JOUEUR
+                    if (playerAction.equals("attaque")){
+                        actionLog.updateLog(perso1.getNom()+" attaque !");
+                        perso1.attaque(enemi1);
+                        System.out.println("perso attaque");
+                        actionLog.updateLog(perso1.getNom()+" inflige"+ perso1.getADMG() +"DMG Ã  l'enemi");
+                    }
+                    if (playerAction.equals("objet")) {
+                        if(perso1.getItem().equals("Potion verte")) {
+                            perso1.setPV(perso1.getPV()+10);
+                        }
+                        if(perso1.getItem().equals("Potion rouge")) {
+                            perso1.setPV(perso1.getPV()+50);
+                        }
+                        if(perso1.getItem().equals("Potion bleu")) {
+                            perso1.setMNA(perso1.getMNA()+25);
+                        }
+                        if(perso1.getItem().equals("Antidote")) {
+                            perso1.setEtat(0);
+                        }
+                    }
+
+                }
+                if (state == 1){
+                    if (cpuAction.equals("attaque")){
+                        actionLog.updateLog("l'enemie attaque !");
+                        enemi1.attaque(perso1);
+                        System.out.println("enemi attaque");
+                        actionLog.updateLog("l'enemie a infligé "+ enemi1.getADMG() +" Ã  l'enemi");
+                    }
+                }
+                if (state == 2){
+                    state = 0;
+                    fin = true;
+                }
+            }
         }
     }
 
     public void setPlayerAction(String action){this.playerAction = action;}
     public void setCpuAction(String action){this.cpuAction = action;}
+    public void setFin(boolean fin){this.fin = fin;}
+    public void mousePressed(MouseEvent e){ }
+    public void mouseReleased(MouseEvent e){}
+    public void mouseEntered(MouseEvent e){}
+    public void mouseExited(MouseEvent e){}
 }
