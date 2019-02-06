@@ -85,15 +85,21 @@ public class Main extends JFrame implements MouseListener {
                     if (playerAction.equals("objet")) {
                         if(perso1.getItem().equals("Potion verte")) {
                             perso1.setPV(perso1.getPV()+20);
+                            actionLog.updateLog("Vous avez récupéré 20 PDV");
+                            
                         }
                         if(perso1.getItem().equals("Potion rouge")) {
                             perso1.setPV(perso1.getPV()+50);
+                            actionLog.updateLog("Vous avez récupéré 50 PDV");                          
                         }
-                        if(perso1.getItem().equals("Potion bleu")) {
+                        if(perso1.getItem().equals("Potion Bleue")) {
                             perso1.setMNA(perso1.getMNA()+25);
+                            actionLog.updateLog("Vous avez récupéré 20 MANA");
+                            
                         }
                         if(perso1.getItem().equals("Antidote")) {
                             perso1.setEtat(0);
+                            actionLog.updateLog("Vous etes revenu a l'etat normal");
                         }
                         
                         perso1.setItem("");
@@ -106,13 +112,16 @@ public class Main extends JFrame implements MouseListener {
                             perso1.magattack(enemi1,10);
                         }
                         if(perso1.getItem().equals("glace")) {
-                            perso1.setPV(perso1.getPV()+50);
+                            perso1.setMNA(perso1.getMNA()-15);
+                            perso1.magattack(enemi1,7);
                         }
                         if(perso1.getItem().equals("electriciter")) {
-                            perso1.setMNA(perso1.getMNA()+25);
+                            perso1.setMNA(perso1.getMNA()-25);
+                            perso1.magattack(enemi1,10);
                         }
                         if(perso1.getItem().equals("terre")) {
-                            perso1.setEtat(0);
+                        	perso1.setMNA(perso1.getMNA()-15);
+                            perso1.magattack(enemi1,9);
                         }
                         
                         perso1.setItem("");

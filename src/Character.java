@@ -2,8 +2,6 @@ public class Character extends Entity{
     private String item;
     public Character(int x, int y){
         super(x, y);
-        MNA = 75;
-        MNA_max = 75;
         PV = 100;
         PV_max = PV;
         MNA = 50;
