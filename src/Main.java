@@ -14,6 +14,7 @@ public class Main extends JFrame implements MouseListener {
     private boolean fin = true;
     private int state=0;
     private int state2=0;
+    private int touretat=0;
 
     public Main(){
         initUI();
@@ -71,10 +72,11 @@ public class Main extends JFrame implements MouseListener {
                     if (playerAction.equals("attaque")){
                     	if(sta == 0 && sta2 == 0) {
                     		actionLog.updateLog(perso1.getNom()+" attaque !");
+                    		perso1.attaque(enemi1);
                     		setstate(0,1);
                     	}
                         if(sta == 0 && sta2 == 1) { 
-                        	perso1.attaque(enemi1);
+                        	
                         	setstate(1,0); // passage au tour de l'ennemie.
                         	actionLog.updateLog(perso1.getNom()+" inflige "+ perso1.getADMG() +" DMG Ã  l'enemi");
                         }
@@ -101,29 +103,47 @@ public class Main extends JFrame implements MouseListener {
                             perso1.setEtat(0);
                             actionLog.updateLog("Vous etes revenu a l'etat normal");
                         }
-                        
+                        setPlayerAction("");
                         perso1.setItem("");
                         setstate(1,0);
                         
                     }
                     if (playerAction.equals("magie")) {
+                    	int aleatoire = (int)(Math.random()*100);
                         if(perso1.getItem().equals("feu")) {
+                        	actionLog.updateLog(perso1.getNom()+" attaque feu !");
                             perso1.setMNA(perso1.getMNA()-20);
                             perso1.magattack(enemi1,10);
+                            if (aleatoire < 30) {
+                            	enemi1.setEtat(1);
+                            	touretat=0;
+                            }
                         }
                         if(perso1.getItem().equals("glace")) {
+                        	actionLog.updateLog(perso1.getNom()+" attaque glace !");
                             perso1.setMNA(perso1.getMNA()-15);
                             perso1.magattack(enemi1,7);
+                            
+                            if (aleatoire < 5) {
+                            	enemi1.setEtat(2);
+                            	touretat=0;
+                            }
                         }
                         if(perso1.getItem().equals("electriciter")) {
+                        	actionLog.updateLog(perso1.getNom()+" attaque electricite !");
                             perso1.setMNA(perso1.getMNA()-25);
                             perso1.magattack(enemi1,10);
+                            if (aleatoire < 20) {
+                            	enemi1.setEtat(3);
+                            	touretat=0;
+                            }
                         }
                         if(perso1.getItem().equals("terre")) {
+                        	actionLog.updateLog(perso1.getNom()+" attaque seisme !");
                         	perso1.setMNA(perso1.getMNA()-15);
                             perso1.magattack(enemi1,9);
                         }
-                        
+                        setPlayerAction("");
                         perso1.setItem("");
                         setstate(1,0);
                         
@@ -131,17 +151,43 @@ public class Main extends JFrame implements MouseListener {
 
                 }
                 if (enemi1.getPV() > 0 && perso1.getPV() > 0 ){
+                	
+                	
                     if (cpuAction.equals("attaque")){
                     	if(sta == 1 && sta2 == 0) {
+                    		if(enemi1.getEtat() == 2) {
+                        		actionLog.updateLog("L'ennemie est gelé");
+                        		setstate(2,0);
+                        		touretat++;
+                        	}
+                        	if(enemi1.getEtat() == 3) {
+                        		int aleatoire = (int)(Math.random()*100);
+                        		if(aleatoire < 30) {
+                        			actionLog.updateLog("L'ennemie est paralysé");
+                        			setstate(2,0);
+                        		}
+                        		touretat++;
+                        	}
+                        	if(enemi1.getEtat() < 2) {
                     		actionLog.updateLog("l'enemie attaque !");
                         	enemi1.attaque(perso1);
                         	setstate(1,1);
+                        	}
                     	}
                         if(sta == 1 && sta2 == 1) {
                         	actionLog.updateLog("l'enemie a infligé "+ enemi1.getADMG() +" Ã  l'enemi");
-                        	setstate(2,0);
+                        	setstate(1,2);                        	
                         }
+                        if(sta == 1 && sta2 == 2) {
+                    		if(enemi1.getEtat() == 1) {
+                    			enemi1.setPV(enemi1.getPV()-12);
+                    			actionLog.updateLog("L'ennemie Brule");
+                    			setstate(2,0);
+                    			touretat++;                    			
+                    		}
+                    		else setstate(2,0);
                         
+                        }
                     }
                     
                     
@@ -174,12 +220,16 @@ public class Main extends JFrame implements MouseListener {
                 		
                 
                 if (sta == 2 && sta2 == 0){
+                	if(touretat >= 3)
+                		enemi1.setEtat(0);
                 	fin = true;
                     actionLog.updateLog("C'est votre tour");
                     fightUI.revealbutton();
                     setstate(0,0);
                     }
                 if (sta == 2 && sta2 == 1) {
+                	if(touretat >= 3)
+                		enemi1.setEtat(0);
                 	fin = true;
                     setstate(0,0);
                 }

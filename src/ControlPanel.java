@@ -142,7 +142,6 @@ public class ControlPanel extends TransparentPane {
             public void actionPerformed(ActionEvent e) {
                 personnage.setItem("Potion verte");
                 main.setPlayerAction("objet");
-                objets.setVisible(false);
                 main.tour(0,0);
             }
         });
@@ -152,7 +151,6 @@ public class ControlPanel extends TransparentPane {
             public void actionPerformed(ActionEvent e) {
                 personnage.setItem("Potion Bleue");
                 main.setPlayerAction("objet");
-                objets.setVisible(false);
                 main.tour(0,0);
             }
         });
@@ -162,7 +160,6 @@ public class ControlPanel extends TransparentPane {
             public void actionPerformed(ActionEvent e) {
                 personnage.setItem("Potion rouge");
                 main.setPlayerAction("objet");
-                objets.setVisible(false);
                 main.tour(0,0);
             }
         });
@@ -171,7 +168,6 @@ public class ControlPanel extends TransparentPane {
             public void actionPerformed(ActionEvent e) {
                 personnage.setItem("Antidote");
                 main.setPlayerAction("objet");
-                objets.setVisible(false);
                 main.tour(0,0);
             }
         });
@@ -181,7 +177,6 @@ public class ControlPanel extends TransparentPane {
             	if(personnage.getMNA()-20>=0) {
                 personnage.setItem("feu");
                 main.setPlayerAction("magie");
-                magie.setVisible(false);
                 main.tour(0,0);
             	}
             }
@@ -192,7 +187,6 @@ public class ControlPanel extends TransparentPane {
             	if(personnage.getMNA()-15>=0) {
                 personnage.setItem("glace");
                 main.setPlayerAction("magie");
-                magie.setVisible(false);
                 main.tour(0,0);
             	}
             }
@@ -203,7 +197,6 @@ public class ControlPanel extends TransparentPane {
             	if(personnage.getMNA()-25>=0) {
                 personnage.setItem("electriciter");
                 main.setPlayerAction("magie");
-                magie.setVisible(false);
                 main.tour(0,0);
             	}
             }
@@ -214,7 +207,6 @@ public class ControlPanel extends TransparentPane {
             	if(personnage.getMNA()-15>=0) {
                 personnage.setItem("terre");
                 main.setPlayerAction("magie");
-                magie.setVisible(false);
                 main.tour(0,0);
             	}
             }
@@ -232,6 +224,8 @@ public class ControlPanel extends TransparentPane {
     public void invisblebutton() {attackButton.setVisible(false);
 								  objectsButton.setVisible(false);
 								  magicButton.setVisible(false);
-								  escapeButton.setVisible(false);}
+								  escapeButton.setVisible(false);
+								  magie.setVisible(false);
+								  objets.setVisible(false);}
     
 }

@@ -139,11 +139,12 @@ public class Entity extends AnimatedSprite {
         return this.LCK;
     }
     public void setEtat(int nEtat){
-        this.etat = nEtat;
+        this.etat=nEtat;
     }
     public int getEtat(){
         return this.etat;
     }
+
     public void setEXP(int nEXP){
         this.EXP = nEXP;
         if(this.EXP >= 200) {
@@ -155,5 +156,7 @@ public class Entity extends AnimatedSprite {
     }
     public void setNom(String nNom){this.nom = nNom;}
     public String getNom(){return this.nom;}
-    }
+    
+	
 
+}
