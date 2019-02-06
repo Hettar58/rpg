@@ -54,8 +54,8 @@ public class ControlPanel extends TransparentPane {
         magie = new TransparentPane(0f, 1.0f);
         feu = new JButton("Feu");
         glace = new JButton("Glace");
-        electricite = new JButton("électricité");
-        terre = new JButton("Séisme");
+        electricite = new JButton("ï¿½lectricitï¿½");
+        terre = new JButton("Sï¿½isme");
 
         info = new TransparentPane(0f, 1.0f);
         playerName = new JLabel(personnage.getNom()+": "+personnage.getPV()+"/"+personnage.getPV_max()+" PV - "+personnage.getMNA()+"/"+personnage.getMNA_max()+" MANA");
@@ -173,6 +173,17 @@ public class ControlPanel extends TransparentPane {
                 main.setPlayerAction("objet");
                 objets.setVisible(false);
                 main.tour(0,0);
+            }
+        });
+        feu.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	if(personnage.getMNA()-20>=0) {
+                personnage.setItem("feu");
+                main.setPlayerAction("magie");
+                magie.setVisible(false);
+                main.tour(0,0);
+            	}
             }
         });
     }

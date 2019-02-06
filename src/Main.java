@@ -100,7 +100,25 @@ public class Main extends JFrame implements MouseListener {
                         setstate(1,0);
                         
                     }
-                    
+                    if (playerAction.equals("magie")) {
+                        if(perso1.getItem().equals("feu")) {
+                            perso1.setMNA(perso1.getMNA()-20);
+                            perso1.magattack(enemi1,10);
+                        }
+                        if(perso1.getItem().equals("glace")) {
+                            perso1.setPV(perso1.getPV()+50);
+                        }
+                        if(perso1.getItem().equals("electriciter")) {
+                            perso1.setMNA(perso1.getMNA()+25);
+                        }
+                        if(perso1.getItem().equals("terre")) {
+                            perso1.setEtat(0);
+                        }
+                        
+                        perso1.setItem("");
+                        setstate(1,0);
+                        
+                    }
 
                 }
                 if (enemi1.getPV() > 0 && perso1.getPV() > 0 ){

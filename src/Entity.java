@@ -9,8 +9,10 @@ public class Entity extends AnimatedSprite {
     protected int MNA;
     protected int MNA_max;
     protected int ATK;
+    protected int MAGATK;
     protected int VIT;
     protected int DEF;
+    protected int MAGDEF;
     protected int STM;
     protected int LCK;
     protected int etat;
@@ -48,11 +50,33 @@ public class Entity extends AnimatedSprite {
             ADMG = (ATK/(100/(50+defense)));
         	}
     }
+    public void magattack(Entity enemi,int MATK){
+    	int Crit = (int)(Math.random()*100);
+    	if(Crit > 4) {
+    		int defense = enemi.getDEF();
+    		enemi.setDMG((MAGATK+MATK)/(100/(50+defense)));
+    		ADMG = ((MAGATK+MATK)/(100/(50+defense)));
+    	}
+    	if(Crit <= 4) {
+            int defense = enemi.getDEF();
+            enemi.setDMG((MAGATK+5+MATK)/(100/(50+defense)));
+            ADMG = ((MAGATK+MATK)/(100/(50+defense)));
+        	}
+    }
     
     public int getADMG() {
     	return ADMG;
     }
     public void setDMG(int DMG){
+    	ADMG = DMG;
+        if (PV - DMG < 0){
+            PV = 0;
+        }
+        else{
+            PV = PV - DMG;
+        }
+    }
+    public void setMAGDMG(int DMG){
     	ADMG = DMG;
         if (PV - DMG < 0){
             PV = 0;
