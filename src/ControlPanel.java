@@ -142,6 +142,7 @@ public class ControlPanel extends TransparentPane {
             public void actionPerformed(ActionEvent e) {
                 personnage.setItem("Potion verte");
                 main.setPlayerAction("objet");
+                objets.setVisible(false);
                 main.tour(0,0);
             }
         });
@@ -151,6 +152,7 @@ public class ControlPanel extends TransparentPane {
             public void actionPerformed(ActionEvent e) {
                 personnage.setItem("Potion Bleue");
                 main.setPlayerAction("objet");
+                objets.setVisible(false);
                 main.tour(0,0);
             }
         });
@@ -160,6 +162,7 @@ public class ControlPanel extends TransparentPane {
             public void actionPerformed(ActionEvent e) {
                 personnage.setItem("Potion rouge");
                 main.setPlayerAction("objet");
+                objets.setVisible(false);
                 main.tour(0,0);
             }
         });
@@ -168,6 +171,7 @@ public class ControlPanel extends TransparentPane {
             public void actionPerformed(ActionEvent e) {
                 personnage.setItem("Antidote");
                 main.setPlayerAction("objet");
+                objets.setVisible(false);
                 main.tour(0,0);
             }
         });
@@ -177,4 +181,13 @@ public class ControlPanel extends TransparentPane {
         this.personnage = perso;
     }
     public void setEnemi(Enemi enemi){this.enemi = enemi;}
+    public void revealbutton() {attackButton.setVisible(true);
+    							objectsButton.setVisible(true);
+    							magicButton.setVisible(true);
+    							escapeButton.setVisible(true);}
+    public void invisblebutton() {attackButton.setVisible(false);
+								  objectsButton.setVisible(false);
+								  magicButton.setVisible(false);
+								  escapeButton.setVisible(false);}
+    
 }

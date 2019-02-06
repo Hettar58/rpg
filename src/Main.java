@@ -63,6 +63,7 @@ public class Main extends JFrame implements MouseListener {
 
         if (fin){
         	fin =false;
+        	fightUI.invisblebutton();
         	
             if (perso1.getPV() > 0 && enemi1.getPV() > 0){
                 
@@ -76,30 +77,10 @@ public class Main extends JFrame implements MouseListener {
                         	setstate(1,0); // passage au tour de l'ennemie.
                         	actionLog.updateLog(perso1.getNom()+" inflige "+ perso1.getADMG() +" DMG Ã  l'enemi");
                         }
-                        if(perso1.getPV() <= 0) {
-                    		setstate(0,0);
-                    		if(sta == 0 && sta2 == 0)
-                    			actionLog.updateLog("Game over");
-                        }
-                        if(enemi1.getPV() <= 0) {
-                        	setstate(3,2);
-                        	if (sta == 3 && sta2 == 2) {
-                        		actionLog.updateLog("Gagné");
-                        		setstate(3,1);
-                        	}
-                        	if (sta == 3 && sta2 == 1) {
-                        		actionLog.updateLog("vous avez gagné "+enemi1.getEXP());
-                        		setstate(3,0);
-                        		if(perso1.niveau < perso1.niveausup) {
-                        			if(sta == 3 && sta2 == 0) {
-                        			actionLog.updateLog("Vous êtes monté au niveau "+ perso1.niveausup);
-                        			perso1.niveau = perso1.niveausup;
-                        			}
-                        		}
-                        	}
-                        		
-                        }
+                        
+                        
                     }
+                    
                     if (playerAction.equals("objet")) {
                         if(perso1.getItem().equals("Potion verte")) {
                             perso1.setPV(perso1.getPV()+20);
@@ -113,9 +94,12 @@ public class Main extends JFrame implements MouseListener {
                         if(perso1.getItem().equals("Antidote")) {
                             perso1.setEtat(0);
                         }
+                        
                         perso1.setItem("");
                         setstate(1,0);
+                        
                     }
+                    
 
                 }
                 if (enemi1.getPV() > 0 && perso1.getPV() > 0 ){
@@ -131,14 +115,50 @@ public class Main extends JFrame implements MouseListener {
                         }
                         
                     }
+                    
+                    
                 }
+                if(perso1.getPV() <= 0) {
+            		setstate(4,0);
+            		if(sta == 4 && sta2 == 0) {
+            			actionLog.updateLog("Game over");
+            			setstate(2,1);
+            		}
+                }
+                if(enemi1.getPV() <= 0) {
+                	setstate(3,2);
+                	if (sta == 3 && sta2 == 2) {
+                		actionLog.updateLog("Gagné");
+                		setstate(3,1);
+                	}
+                	if (sta == 3 && sta2 == 1) {
+                		actionLog.updateLog("vous avez gagné "+enemi1.getEXP()+" Exp");
+                		setstate(3,0);
+                	}
+                		if(perso1.niveau < perso1.niveausup) {
+                			if(sta == 3 && sta2 == 0) {
+                			actionLog.updateLog("Vous êtes monté au niveau "+ perso1.niveausup);
+                			perso1.niveau = perso1.niveausup;
+                			}
+                		}
+                		setstate(2,1);
+                	}
+                		
+                
                 if (sta == 2 && sta2 == 0){
-                    fin = true;
+                	fin = true;
                     actionLog.updateLog("C'est votre tour");
+                    fightUI.revealbutton();
+                    setstate(0,0);
+                    }
+                if (sta == 2 && sta2 == 1) {
+                	fin = true;
                     setstate(0,0);
                 }
-            }
+                
+            
         }
+    }
     
 
     public void setPlayerAction(String action){this.playerAction = action;}
@@ -153,6 +173,7 @@ public class Main extends JFrame implements MouseListener {
     public int getstate2() {
     	return state2;
     }
+    public boolean getfin() {return fin;}
     public void mousePressed(MouseEvent e){ }
     public void mouseReleased(MouseEvent e){}
     public void mouseEntered(MouseEvent e){}
