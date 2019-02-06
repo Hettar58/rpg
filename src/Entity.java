@@ -7,6 +7,7 @@ public class Entity extends AnimatedSprite {
     protected int PV_max;
     protected int EXP;
     protected int MNA;
+    protected int MNA_max;
     protected int ATK;
     protected int VIT;
     protected int DEF;
@@ -105,6 +106,8 @@ public class Entity extends AnimatedSprite {
     public int getMNA(){
         return this.MNA;
     }
+    public void setMNA_max(int MNA){this.MNA_max = MNA;}
+    public int getMNA_max() {return this.MNA_max;}
     public void setLCK(int nLCK){
         this.LCK = nLCK;
     }

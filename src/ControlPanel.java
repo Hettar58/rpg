@@ -32,33 +32,33 @@ public class ControlPanel extends TransparentPane {
     private JPanel info;
     private JLabel playerName;
     public ControlPanel(float panelOpacity, float childrenOpacity, Character perso, Enemi enemi, Main main){
-        super(panelOpacity, childrenOpacity);
 
+        super(panelOpacity, childrenOpacity);
         this.personnage = perso;
         this.enemi = enemi;
         this.setLayout(new GridLayout(1, 4));
         this.setBounds(0, 480, 800, 100);
-        this.middlePanel = new JPanel();
-        inputPanel = new JPanel();
+        this.middlePanel = new TransparentPane(0f, 1.0f);
+        inputPanel = new TransparentPane(0f, 1.0f);
         attackButton = new JButton("Attaquer");
         objectsButton = new JButton("Objets");
         magicButton = new JButton("Magie");
         escapeButton = new JButton("Fuite");
 
-        objets = new JPanel();
+        objets = new TransparentPane(0f, 1.0f);
         potionVerte = new JButton("Potion verte");
         potionRouge = new JButton("Potion rouge");
         potionBleue = new JButton("Potion bleue");
         antidote = new JButton("Antidote");
 
-        magie = new JPanel();
+        magie = new TransparentPane(0f, 1.0f);
         feu = new JButton("Feu");
         glace = new JButton("Glace");
-        electricite = new JButton("Ã©lectricitÃ©");
-        terre = new JButton("SÃ©isme");
+        electricite = new JButton("électricité");
+        terre = new JButton("Séisme");
 
-        info = new JPanel();
-        playerName = new JLabel(personnage.getNom()+": "+personnage.getPV()+"/"+personnage.getPV_max());
+        info = new TransparentPane(0f, 1.0f);
+        playerName = new JLabel(personnage.getNom()+": "+personnage.getPV()+"/"+personnage.getPV_max()+" PV - "+personnage.getMNA()+"/"+personnage.getMNA_max()+" MANA");
 
         inputPanel.setLayout(new GridLayout(4, 1));
         objets.setLayout(new GridLayout(2, 2));

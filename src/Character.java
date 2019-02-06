@@ -3,7 +3,9 @@ public class Character extends Entity{
     public Character(int x, int y){
         super(x, y);
         PV = 100;
-        PV_max = 100;
+        PV_max = PV;
+        MNA = 50;
+        MNA_max = MNA;
         ATK = 10;
         DEF = 10;
         EXP = 0;
