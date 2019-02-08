@@ -7,6 +7,7 @@ public class Character extends Entity{
         MNA = 50;
         MNA_max = MNA;
         ATK = 10;
+        MAGATK = 15;
         DEF = 10;
         EXP = 0;
         niveau = 0;

@@ -54,8 +54,8 @@ public class ControlPanel extends TransparentPane {
         magie = new TransparentPane(0f, 1.0f);
         feu = new JButton("Feu");
         glace = new JButton("Glace");
-        electricite = new JButton("électricité");
-        terre = new JButton("Séisme");
+        electricite = new JButton("electricite");
+        terre = new JButton("Seisme");
 
         info = new TransparentPane(0f, 1.0f);
         playerName = new JLabel(personnage.getNom()+": "+personnage.getPV()+"/"+personnage.getPV_max()+" PV - "+personnage.getMNA()+"/"+personnage.getMNA_max()+" MANA");
@@ -142,7 +142,6 @@ public class ControlPanel extends TransparentPane {
             public void actionPerformed(ActionEvent e) {
                 personnage.setItem("Potion verte");
                 main.setPlayerAction("objet");
-                objets.setVisible(false);
                 main.tour(0,0);
             }
         });
@@ -152,7 +151,6 @@ public class ControlPanel extends TransparentPane {
             public void actionPerformed(ActionEvent e) {
                 personnage.setItem("Potion Bleue");
                 main.setPlayerAction("objet");
-                objets.setVisible(false);
                 main.tour(0,0);
             }
         });
@@ -162,7 +160,6 @@ public class ControlPanel extends TransparentPane {
             public void actionPerformed(ActionEvent e) {
                 personnage.setItem("Potion rouge");
                 main.setPlayerAction("objet");
-                objets.setVisible(false);
                 main.tour(0,0);
             }
         });
@@ -171,8 +168,47 @@ public class ControlPanel extends TransparentPane {
             public void actionPerformed(ActionEvent e) {
                 personnage.setItem("Antidote");
                 main.setPlayerAction("objet");
-                objets.setVisible(false);
                 main.tour(0,0);
+            }
+        });
+        feu.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	if(personnage.getMNA()-20>=0) {
+                personnage.setItem("feu");
+                main.setPlayerAction("magie");
+                main.tour(0,0);
+            	}
+            }
+        });
+        glace.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	if(personnage.getMNA()-15>=0) {
+                personnage.setItem("glace");
+                main.setPlayerAction("magie");
+                main.tour(0,0);
+            	}
+            }
+        });
+        electricite.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	if(personnage.getMNA()-25>=0) {
+                personnage.setItem("electriciter");
+                main.setPlayerAction("magie");
+                main.tour(0,0);
+            	}
+            }
+        });
+        terre.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	if(personnage.getMNA()-15>=0) {
+                personnage.setItem("terre");
+                main.setPlayerAction("magie");
+                main.tour(0,0);
+            	}
             }
         });
     }
