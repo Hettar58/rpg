@@ -177,17 +177,14 @@ public class ControlPanel extends TransparentPane {
         });
     }
 
+    public void refresh(){
+        playerName.setText(personnage.getNom()+": "+personnage.getPV()+"/"+personnage.getPV_max()+" PV - "+personnage.getMNA()+"/"+personnage.getMNA_max()+" MANA");
+    }
+
     public void setPersonnage(Character perso){
         this.personnage = perso;
     }
     public void setEnemi(Enemi enemi){this.enemi = enemi;}
-    public void revealbutton() {attackButton.setVisible(true);
-    							objectsButton.setVisible(true);
-    							magicButton.setVisible(true);
-    							escapeButton.setVisible(true);}
-    public void invisblebutton() {attackButton.setVisible(false);
-								  objectsButton.setVisible(false);
-								  magicButton.setVisible(false);
-								  escapeButton.setVisible(false);}
+
     
 }

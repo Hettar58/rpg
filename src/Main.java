@@ -22,7 +22,7 @@ public class Main extends JFrame implements MouseListener {
         perso1 = new Character(280, 250);
         enemi1 = new Enemi(480, 250);
         fightUI = new ControlPanel(0.3f, 1f, perso1, enemi1, this);
-        actionLog = new LogPanel(0.3f, 1.0f);
+        actionLog = new LogPanel(0.5f, 1.0f);
         render = new Render();
         render.setLayout(null);
         add(render);
@@ -38,7 +38,7 @@ public class Main extends JFrame implements MouseListener {
         fightUI.setPersonnage(perso1);
         render.add(fightUI);
         render.add(actionLog);
-        fightUI.addMouseListener(this);
+        render.addMouseListener(this);
     }
 
     public static void main(String[] args){
@@ -64,7 +64,7 @@ public class Main extends JFrame implements MouseListener {
 
         if (fin){
         	fin =false;
-        	fightUI.invisblebutton();
+        	fightUI.setVisible(false);
         	
             if (perso1.getPV() > 0 && enemi1.getPV() > 0){
                 
@@ -76,7 +76,7 @@ public class Main extends JFrame implements MouseListener {
                         if(sta == 0 && sta2 == 1) { 
                         	perso1.attaque(enemi1);
                         	setstate(1,0); // passage au tour de l'ennemie.
-                        	actionLog.updateLog(perso1.getNom()+" inflige "+ perso1.getADMG() +" DMG Ã  l'enemi");
+                        	actionLog.updateLog(perso1.getNom()+" inflige "+ perso1.getADMG() +" DMG à  l'enemi");
                         }
                         
                         
@@ -106,12 +106,12 @@ public class Main extends JFrame implements MouseListener {
                 if (enemi1.getPV() > 0 && perso1.getPV() > 0 ){
                     if (cpuAction.equals("attaque")){
                     	if(sta == 1 && sta2 == 0) {
-                    		actionLog.updateLog("l'enemie attaque !");
+                    		actionLog.updateLog("l'enemi attaque !");
                         	enemi1.attaque(perso1);
                         	setstate(1,1);
                     	}
                         if(sta == 1 && sta2 == 1) {
-                        	actionLog.updateLog("l'enemie a infligé "+ enemi1.getADMG() +" Ã  l'enemi");
+                        	actionLog.updateLog("l'enemi a infligé "+ enemi1.getADMG() +" DMG à Joueur 1");
                         	setstate(2,0);
                         }
                         
@@ -148,8 +148,9 @@ public class Main extends JFrame implements MouseListener {
                 
                 if (sta == 2 && sta2 == 0){
                 	fin = true;
-                    actionLog.updateLog("C'est votre tour");
-                    fightUI.revealbutton();
+                    actionLog.updateLog("C'est à votre tour");
+                    fightUI.refresh();
+                    fightUI.setVisible(true);
                     setstate(0,0);
                     }
                 if (sta == 2 && sta2 == 1) {
