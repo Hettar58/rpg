@@ -33,7 +33,7 @@ public class Render extends JPanel implements ActionListener{
         g2d.drawImage(bg.getImage(), bg.getX(), bg.getY(), this);
         g2d.drawImage(bg2.getImage(), bg.getX(), bg.getY(), this);
         for (Entity entite : entites){
-            g2d.setColor(Color.GREEN);
+            g2d.setColor(entite.getStatus());
             g2d.drawString((entite.getPV()+"/"+entite.getPV_max()), entite.getX()-5, entite.getY()-10);
             g2d.drawImage(entite.getImage(), entite.getX(), entite.getY(), this);
         }

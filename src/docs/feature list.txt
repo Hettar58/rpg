@@ -42,3 +42,13 @@ etats speciaux:
 3 = aveuglé -> 75% de chance de miss l'attaque
 4 = ralenti -> VIT diminuée de moitié
 5 = poison -> 15 DMG a chaque action du joueur + dégats critiques obligatoires par les enemis.
+6 = brulé
+7 = gelé
+
+potion : 100 HP
+Haute potion: 400 HP
+Super potion: tous HP
+
+mana plus: 20% MP
+esprit supérieur: 50% MP
+Mana prism: tous MP

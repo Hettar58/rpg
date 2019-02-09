@@ -1,11 +1,10 @@
-import javax.swing.*;
+import java.awt.*;
 
 public class Entity extends AnimatedSprite {
 
 	protected int ADMG;
     protected int PV;
     protected int PV_max;
-    protected int EXP;
     protected int MNA;
     protected int MNA_max;
     protected int ATK;
@@ -17,8 +16,6 @@ public class Entity extends AnimatedSprite {
     protected int LCK;
     protected int etat;
     protected int delay;
-    protected int niveau;
-    protected int niveausup;
     protected String nom;
 
     public Entity(int x, int y) {
@@ -31,9 +28,6 @@ public class Entity extends AnimatedSprite {
         DEF = 10;
         etat = 0;
         LCK = 8;
-        EXP = 0;
-        niveau = 1;
-        niveausup=1;
         nom = "Nom du personnage";
     }
 
@@ -145,18 +139,32 @@ public class Entity extends AnimatedSprite {
         return this.etat;
     }
 
-    public void setEXP(int nEXP){
-        this.EXP = nEXP;
-        if(this.EXP >= 200) {
-        	niveausup++;
-        }
-    }
-    public int getEXP(){
-        return this.EXP;
-    }
+
     public void setNom(String nNom){this.nom = nNom;}
     public String getNom(){return this.nom;}
-    
+
+    public Color getStatus(){
+        if (etat == 0){
+            return Color.GREEN;
+        }
+        if (etat == 1){
+            return Color.YELLOW;
+        }
+        if (etat == 2){
+            return Color.ORANGE;
+        }
+        if (etat == 3){
+            return Color.WHITE;
+        }
+        if (etat == 4){
+            return Color.CYAN;
+        }
+        if (etat == 5){
+            return Color.MAGENTA;
+        }
+        return Color.BLACK;
+    }
 	
+
 
 }
