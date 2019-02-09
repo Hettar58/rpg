@@ -7,6 +7,7 @@ public class Character extends Entity{
     private ControlPanel magie;
     public Character(int x, int y){
         super(x, y);
+        inv = new Inventory();
         PV = 100;
         PV_max = PV;
         MNA = 50;

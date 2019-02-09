@@ -11,19 +11,20 @@ public class Equipement {
     protected int VIT;
     protected String nom;
 
+
     public Equipement(){
-    ATK=0;
-    DEF=0;
-    PV=0;
-    MNA=0;
-    MAGATK=0;
-    LCK=1;
-    STM=0;
-    VIT=0;
-    nom="Nom de l'arme ou armure"
+        ATK=0;
+        DEF=0;
+        PV = 0;
+        MNA=0;
+        MAGATK=0;
+        LCK=1;
+        STM=0;
+        VIT=0;
+        nom="Nom de l'arme ou armure";
     }
 
-    public setPV(int nPV){this.PV=nPV;}
+    public void setPV(int nPV){this.PV=nPV;}
     public int getPV(){
         return this.PV;
     }

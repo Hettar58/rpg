@@ -81,7 +81,7 @@ public class Main extends JFrame implements MouseListener {
                     
                     //magie                    
                     if (playerAction.equals("magie")) {
-                    	Magie magie = new Magie(perso1,enemi1);
+                    	//Magie magie = new Magie(perso1,enemi1);
                         setstate(0,1);
                         perso1.setmagie("");
                         setPlayerAction("");
@@ -196,7 +196,7 @@ public class Main extends JFrame implements MouseListener {
                 
             
         }
-    }
+
     
 
     public void setPlayerAction(String action){this.playerAction = action;}

@@ -23,7 +23,7 @@ public class Item{
     public void use(){
         if (this.affectedStat.equals("PV")){
             if (this.method.equals("%")){
-                joueur.setPV((int)(joueur.getPV()*(1+value/10)));
+                joueur.setPV((int)(joueur.getPV()+(100*value/joueur.getPV())));
             }
             else{
                 joueur.setPV(joueur.getPV()+value);
@@ -31,7 +31,7 @@ public class Item{
         }
         if (this.affectedStat.equals("MNA")){
             if (this.method.equals("%")){
-                joueur.setMNA((int)(joueur.getMNA()*(1+value/10)));
+                joueur.setMNA((int)(joueur.getMNA()+(100*value/joueur.getMNA())));
             }
             else{
                 joueur.setMNA(joueur.getMNA()+value);
@@ -39,21 +39,21 @@ public class Item{
         }
         if (this.affectedStat.equals("VIT")){
             if (this.method.equals("%")){
-                joueur.setVIT((int)(joueur.getVIT()*(1+value/10)));
+                joueur.setVIT((int)(joueur.getVIT()+(100*value/joueur.getPV())));
             }
             else{
                 joueur.setVIT(joueur.getVIT()+value);
             }
         }if (this.affectedStat.equals("ATK")){
             if (this.method.equals("%")){
-                joueur.setATK((int)(joueur.getATK()*(1+value/10)));
+                joueur.setATK((int)(joueur.getATK()+(100*value/joueur.getATK())));
             }
             else{
                 joueur.setATK(joueur.getATK()+value);
             }
         }if (this.affectedStat.equals("INT")){
             if (this.method.equals("%")){
-                joueur.setINT((int)(joueur.getINT()*(1+value/10)));
+                joueur.setINT((int)(joueur.getINT()+(100*value/joueur.getINT())));
             }
             else{
                 joueur.setINT(joueur.getINT()+value);
@@ -61,7 +61,7 @@ public class Item{
         }
         if (this.affectedStat.equals("DEF")){
             if (this.method.equals("%")){
-                joueur.setDEF((int)(joueur.getDEF()*(1+value/10)));
+                joueur.setDEF((int)(joueur.getDEF()+(100*value/joueur.getDEF())));
             }
             else{
                 joueur.setDEF(joueur.getDEF()+value);
@@ -69,10 +69,18 @@ public class Item{
         }
         if (this.affectedStat.equals("STM")){
             if (this.method.equals("%")){
-                joueur.setSTM((int)(joueur.getSTM()*(1+value/10)));
+                joueur.setSTM((int)(joueur.getSTM()+(100*value/joueur.getSTM())));
             }
             else{
                 joueur.setSTM(joueur.getSTM()+value);
+            }
+        }
+        if (this.affectedStat.equals("MAGDEF")){
+            if (this.method.equals("%")){
+                joueur.setMAGDEF((int)(joueur.getMAGDEF()+(100*value/joueur.getMAGDEF())));
+            }
+            else{
+                joueur.setMAGDEF(joueur.getMAGDEF()+value);
             }
         }
     }
