@@ -20,6 +20,9 @@
 /ControlPanel.class
 /Enemi.class
 /Entity.class
+/Inventory$InventoryItem.class
+/Inventory.class
+/Item.class
 /LogPanel.class
 /Magie.class
 /Main.class
@@ -28,3 +31,4 @@
 /TransparentPane.class
 /docs/
 /res/
+/test_inventory.class
