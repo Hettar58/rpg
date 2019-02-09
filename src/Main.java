@@ -69,22 +69,17 @@ public class Main extends JFrame implements MouseListener {
         	fightUI.setVisible(false);
         	
             if (perso1.getPV() > 0 && enemi1.getPV() > 0){
-                
+            	
+                	//Attack perso
                     if (playerAction.equals("attaque")){
                     	if(sta == 0 && sta2 == 0) {
                     		actionLog.updateLog(perso1.getNom()+" attaque !");
                     		perso1.attaque(enemi1);
                     		setstate(0,1);
-                    	}
-                        if(sta == 0 && sta2 == 1) { 
-                        	
-                        	setstate(1,0); // passage au tour de l'ennemie.
-                        	actionLog.updateLog(perso1.getNom()+" inflige "+ perso1.getADMG() +" DMG � l'enemi");
-                        }
-                        
-                        
+                    	}  
                     }
                     
+                    //objets
                     if (playerAction.equals("objet")) {
                         /*if(perso1.getItem().equals("Item verte")) {
                             perso1.setPV(perso1.getPV()+20);
@@ -105,26 +100,38 @@ public class Main extends JFrame implements MouseListener {
                             actionLog.updateLog("Vous etes revenu a l'etat normal");
                         }
                         setPlayerAction("");
-                        perso1.setItem("");*/
-                        setstate(1,0);
-                        
+                        perso1.setItem("");
+                        setstate(1,0);                
                     }
+                    
+                    //magie                    
                     if (playerAction.equals("magie")) {
                     	Magie magie = new Magie(perso1,enemi1);
-                        setstate(1,0);
+                        setstate(0,1);
+                        perso1.setItem("");
                         setPlayerAction("");
                     }
-
                 }
-                if (enemi1.getPV() > 0 && perso1.getPV() > 0 ){
-                	
-                	
+           //-----------------------------------------------------------------
+           // l'affichage des degats et verification si ennemie mort
+            if(sta == 0 && sta2 == 1) {            	
+            	setstate(1,0);
+            	actionLog.updateLog(perso1.getNom()+" inflige "+ perso1.getADMG() +" DMG � l'enemi");
+            	if(enemi1.getPV() <= 0) {
+                	setstate(3,2);
+            	}
+            }
+            //----------------------------------------------------------------- 
+            	//Attack enemie
+                if (enemi1.getPV() > 0 && perso1.getPV() > 0 ){    	
                     if (cpuAction.equals("attaque")) {
+            //-----------------------------------------------------------------
+                    	//statue
                         if (sta == 1 && sta2 == 0) {
                             if (enemi1.getEtat() == 2) {
                                 actionLog.updateLog("L'ennemie est gel�");
                                 setstate(2, 0);
-                                touretat++;
+                                enemi1.touretat++;
                             }
                             if (enemi1.getEtat() == 3) {
                                 int aleatoire = (int) (Math.random() * 100);
@@ -132,50 +139,68 @@ public class Main extends JFrame implements MouseListener {
                                     actionLog.updateLog("L'ennemie est paralys�");
                                     setstate(2, 0);
                                 }
-                                touretat++;
+                                enemi1.touretat++;
                             }
+                       // enemie sans etat attaque enemie
                             if (enemi1.getEtat() < 2) {
                                 actionLog.updateLog("l'enemie attaque !");
                                 enemi1.attaque(perso1);
                                 setstate(1, 1);
-                            }
+                            }                            
                         }
+                        
+               //----------------------------------------------------------------------
+                        //Attack de l'ennemie
                         if (sta == 1 && sta2 == 1) {
                             actionLog.updateLog("l'enemie a inflig� " + enemi1.getADMG() + " au joueur");
                             setstate(1, 2);
                         }
+              //--------------------------------------------------------------------
+                        //verife etat brul�
                         if (sta == 1 && sta2 == 2) {
                             if (enemi1.getEtat() == 1) {
-                                enemi1.setPV(enemi1.getPV() - 12);
+                                enemi1.setDMG(12);
                                 actionLog.updateLog("L'ennemie Brule");
                                 setstate(2, 0);
-                                touretat++;
-                            } else setstate(2, 0);
-
+                                enemi1.touretat++;
+                                if(enemi1.getPV() <= 0) {
+                                	setstate(3,2);
+                            	}
+                            }
+                        // verifie si le joueur est mort ou non 
+                            if (enemi1.getEtat() != 2 && perso1.getPV() > 0 && enemi1.getPV() > 0) {
+                            	setstate(2, 0);
+                            }
+                            if(perso1.getPV() <= 0) {
+                        		setstate(4,0);
+                            }
                         }
                     }
                 }
-                if(perso1.getPV() <= 0) {
-            		setstate(4,0);
-            		if(sta == 4 && sta2 == 0) {
-            			actionLog.updateLog("Game over");
-            			setstate(2,1);
-            		}
+       //------------------------------------------
+                // etat de fin de combat
+                if(sta == 4 && sta2 == 0) {
+            		actionLog.updateLog("Game over");
+            		setstate(2,1);
                 }
-                if(enemi1.getPV() <= 0) {
-                	setstate(3,2);
-                	if (sta == 3 && sta2 == 2) {
-                		actionLog.updateLog("Gagn�");
-                		setstate(3,1);
-                	}
-                	if (sta == 3 && sta2 == 1) {
-                		actionLog.updateLog("vous avez gagn� "+enemi1.getGivenEXP()+" Exp");
-                		setstate(3,0);
-                	}
-                	setstate(2,1);
-                }
-                		
-                
+                if (sta == 3 && sta2 == 2) {
+                	actionLog.updateLog("Gagn�");
+                	setstate(3,1);
+               	}
+                if (sta == 3 && sta2 == 1) {
+                	actionLog.updateLog("vous avez gagn� "+enemi1.getGivenEXP()+" Exp");
+                	perso1.setEXP(enemi1.givenEXP);
+               		setstate(3,0);	
+               	}
+                if (sta == 3 && sta2 == 0 && perso1.niveau < perso1.niveausup ) {
+                	actionLog.updateLog("Vous etes montez niveau "+perso1.niveausup);
+               		perso1.niveau = perso1.niveausup;
+               	}
+            	if (sta == 3 && sta2 == 0 && perso1.niveau == perso1.niveausup ) {
+            		setstate(2,1);
+           		}
+       //------------------------------------------------------
+            	// fin de tour si pv > 0 
                 if (sta == 2 && sta2 == 0){
                 	if(enemi1.touretat >= 3)
                 		enemi1.setEtat(0);
@@ -185,6 +210,8 @@ public class Main extends JFrame implements MouseListener {
                     fightUI.setVisible(true);
                     setstate(0,0);
                     }
+       //-------------------------------------------------------
+                // fin de tour si pv = 0
                 if (sta == 2 && sta2 == 1) {
                 	if(enemi1.touretat >= 3)
                 		enemi1.setEtat(0);

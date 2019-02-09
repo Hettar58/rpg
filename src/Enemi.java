@@ -1,6 +1,6 @@
 public class Enemi extends Entity{
-    private int givenEXP;
-    
+    protected int givenEXP;
+    protected int touretat = 0;
     public Enemi (int x, int y, int niveauJoueur) {
         super(x, y);
         PV = 200;

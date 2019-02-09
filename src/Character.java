@@ -1,5 +1,6 @@
 public class Character extends Entity{
-    private int niveau;
+    protected int niveau;
+    protected int niveausup;
     private int levelPass;
     private int EXP;
     private Inventory inv;
@@ -14,6 +15,7 @@ public class Character extends Entity{
         DEF = 10;
         EXP = 0;
         niveau = 1;
+        niveausup = 1;
         levelPass = (int)(Math.sqrt((double)(100*niveau)) + 1.5*niveau+Math.pow(niveau, 2.0));
         VIT = 10;
         nom = "Joueur 1";
@@ -35,7 +37,7 @@ public class Character extends Entity{
     public void setEXP(int nEXP){
         this.EXP = nEXP;
         if(this.EXP >= levelPass) {
-            niveau++;
+            niveausup++;
             levelPass = (int)(Math.sqrt((double)(100*niveau)) + 1.5*niveau+Math.pow(niveau, 2.0));
         }
     }
