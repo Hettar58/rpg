@@ -2,6 +2,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 
 public class ControlPanel extends TransparentPane {
     private JPanel inputPanel;
@@ -40,22 +43,22 @@ public class ControlPanel extends TransparentPane {
         this.setBounds(0, 480, 800, 100);
         this.middlePanel = new TransparentPane(0f, 1.0f);
         inputPanel = new TransparentPane(0f, 1.0f);
-        attackButton = new JButton("Attaquer");
-        objectsButton = new JButton("Objets");
-        magicButton = new JButton("Magie");
-        escapeButton = new JButton("Fuite");
+        attackButton = new Button("Attaque");
+        objectsButton = new Button("Objets");
+        magicButton = new Button("Magie");
+        escapeButton = new Button("Fuite");
 
         objets = new TransparentPane(0f, 1.0f);
-        potionVerte = new JButton("Item verte");
-        potionRouge = new JButton("Item rouge");
-        potionBleue = new JButton("Item bleue");
-        antidote = new JButton("Antidote");
+        potionVerte = new Button("Item verte");
+        potionRouge = new Button("Item rouge");
+        potionBleue = new Button("Item bleue");
+        antidote = new Button("Antidote");
 
         magie = new TransparentPane(0f, 1.0f);
-        feu = new JButton("Feu");
-        glace = new JButton("Glace");
-        electricite = new JButton("electricite");
-        terre = new JButton("Seisme");
+        feu = new Button("Feu");
+        glace = new Button("Glace");
+        electricite = new Button("electricite");
+        terre = new Button("Seisme");
 
         info = new TransparentPane(0f, 1.0f);
         playerName = new JLabel(personnage.getNom()+": "+personnage.getPV()+"/"+personnage.getPV_max()+" PV - "+personnage.getMNA()+"/"+personnage.getMNA_max()+" MANA");
