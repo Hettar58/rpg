@@ -42,3 +42,5 @@ etats speciaux:
 3 = aveuglé -> 75% de chance de miss l'attaque
 4 = ralenti -> VIT diminuée de moitié
 5 = poison -> 15 DMG a chaque action du joueur + dégats critiques obligatoires par les enemis.
+6 = brulé
+7 = gelé
