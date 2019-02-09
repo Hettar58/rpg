@@ -14,13 +14,14 @@ public class Main extends JFrame implements MouseListener {
     private boolean fin = true;
     private int state=0;
     private int state2=0;
-    private int touretat=0;
+    
+    
 
     public Main(){
         initUI();
     }
     private void initUI(){
-        perso1 = new Character(280, 250);
+    	perso1 = new Character(280, 250);
         enemi1 = new Enemi(480, 250);
         fightUI = new ControlPanel(0.3f, 1f, perso1, enemi1, this);
         actionLog = new LogPanel(0.5f, 1.0f);
@@ -109,44 +110,10 @@ public class Main extends JFrame implements MouseListener {
                         
                     }
                     if (playerAction.equals("magie")) {
-                    	int aleatoire = (int)(Math.random()*100);
-                        if(perso1.getItem().equals("feu")) {
-                        	actionLog.updateLog(perso1.getNom()+" attaque feu !");
-                            perso1.setMNA(perso1.getMNA()-20);
-                            perso1.magattack(enemi1,10);
-                            if (aleatoire < 30) {
-                            	enemi1.setEtat(1);
-                            	touretat=0;
-                            }
-                        }
-                        if(perso1.getItem().equals("glace")) {
-                        	actionLog.updateLog(perso1.getNom()+" attaque glace !");
-                            perso1.setMNA(perso1.getMNA()-15);
-                            perso1.magattack(enemi1,7);
-                            
-                            if (aleatoire < 5) {
-                            	enemi1.setEtat(2);
-                            	touretat=0;
-                            }
-                        }
-                        if(perso1.getItem().equals("electriciter")) {
-                        	actionLog.updateLog(perso1.getNom()+" attaque electricite !");
-                            perso1.setMNA(perso1.getMNA()-25);
-                            perso1.magattack(enemi1,10);
-                            if (aleatoire < 20) {
-                            	enemi1.setEtat(3);
-                            	touretat=0;
-                            }
-                        }
-                        if(perso1.getItem().equals("terre")) {
-                        	actionLog.updateLog(perso1.getNom()+" attaque seisme !");
-                        	perso1.setMNA(perso1.getMNA()-15);
-                            perso1.magattack(enemi1,9);
-                        }
-                        setPlayerAction("");
-                        perso1.setItem("");
+                    	Magie magie = new Magie(perso1,enemi1);
                         setstate(1,0);
-                        
+                        perso1.setItem("");
+                        setPlayerAction("");
                     }
 
                 }
@@ -158,7 +125,7 @@ public class Main extends JFrame implements MouseListener {
                     		if(enemi1.getEtat() == 2) {
                         		actionLog.updateLog("L'ennemie est gel�");
                         		setstate(2,0);
-                        		touretat++;
+                        		enemi1.touretat++;
                         	}
                         	if(enemi1.getEtat() == 3) {
                         		int aleatoire = (int)(Math.random()*100);
@@ -166,7 +133,7 @@ public class Main extends JFrame implements MouseListener {
                         			actionLog.updateLog("L'ennemie est paralys�");
                         			setstate(2,0);
                         		}
-                        		touretat++;
+                        		enemi1.touretat++;
                         	}
                         	if(enemi1.getEtat() < 2) {
                     		actionLog.updateLog("l'enemie attaque !");
@@ -183,7 +150,7 @@ public class Main extends JFrame implements MouseListener {
                     			enemi1.setPV(enemi1.getPV()-12);
                     			actionLog.updateLog("L'ennemie Brule");
                     			setstate(2,0);
-                    			touretat++;                    			
+                    			enemi1.touretat++;                    			
                     		}
                     		else setstate(2,0);
                         
@@ -220,7 +187,7 @@ public class Main extends JFrame implements MouseListener {
                 		
                 
                 if (sta == 2 && sta2 == 0){
-                	if(touretat >= 3)
+                	if(enemi1.touretat >= 3)
                 		enemi1.setEtat(0);
                 	fin = true;
                     actionLog.updateLog("C'est � votre tour");
@@ -229,7 +196,7 @@ public class Main extends JFrame implements MouseListener {
                     setstate(0,0);
                     }
                 if (sta == 2 && sta2 == 1) {
-                	if(touretat >= 3)
+                	if(enemi1.touretat >= 3)
                 		enemi1.setEtat(0);
                 	fin = true;
                     setstate(0,0);
@@ -257,4 +224,7 @@ public class Main extends JFrame implements MouseListener {
     public void mouseReleased(MouseEvent e){}
     public void mouseEntered(MouseEvent e){}
     public void mouseExited(MouseEvent e){}
+    public Character getperso() {
+    	return perso1;
+    }
 }

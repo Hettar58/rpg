@@ -1,4 +1,5 @@
 public class Enemi extends Entity{
+	protected int touretat;
     public Enemi (int x, int y) {
         super(x, y);
         PV = 200;

@@ -156,7 +156,7 @@ public class Entity extends AnimatedSprite {
     }
     public void setNom(String nNom){this.nom = nNom;}
     public String getNom(){return this.nom;}
-    
 	
+
 
 }
