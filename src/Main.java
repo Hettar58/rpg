@@ -86,16 +86,16 @@ public class Main extends JFrame implements MouseListener {
                     }
                     
                     if (playerAction.equals("objet")) {
-                        if(perso1.getItem().equals("Potion verte")) {
+                        /*if(perso1.getItem().equals("Item verte")) {
                             perso1.setPV(perso1.getPV()+20);
                             actionLog.updateLog("Vous avez r�cup�r� 20 PDV");
                             
                         }
-                        if(perso1.getItem().equals("Potion rouge")) {
+                        if(perso1.getItem().equals("Item rouge")) {
                             perso1.setPV(perso1.getPV()+50);
                             actionLog.updateLog("Vous avez r�cup�r� 50 PDV");
                         }
-                        if(perso1.getItem().equals("Potion Bleue")) {
+                        if(perso1.getItem().equals("Item Bleue")) {
                             perso1.setMNA(perso1.getMNA()+25);
                             actionLog.updateLog("Vous avez r�cup�r� 20 MANA");
                             
@@ -105,14 +105,13 @@ public class Main extends JFrame implements MouseListener {
                             actionLog.updateLog("Vous etes revenu a l'etat normal");
                         }
                         setPlayerAction("");
-                        perso1.setItem("");
+                        perso1.setItem("");*/
                         setstate(1,0);
                         
                     }
                     if (playerAction.equals("magie")) {
                     	Magie magie = new Magie(perso1,enemi1);
                         setstate(1,0);
-                        perso1.setItem("");
                         setPlayerAction("");
                     }
 

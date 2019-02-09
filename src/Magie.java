@@ -1,5 +1,3 @@
-import javax.swing.*;
-import java.awt.*;
 public class Magie {
 	private LogPanel actionLog = new LogPanel(0.5f, 1.0f);
 

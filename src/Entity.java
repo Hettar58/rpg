@@ -8,7 +8,7 @@ public class Entity extends AnimatedSprite {
     protected int MNA;
     protected int MNA_max;
     protected int ATK;
-    protected int MAGATK;
+    protected int INT;
     protected int VIT;
     protected int DEF;
     protected int MAGDEF;
@@ -48,13 +48,13 @@ public class Entity extends AnimatedSprite {
     	int Crit = (int)(Math.random()*100);
     	if(Crit > 4) {
     		int defense = enemi.getDEF();
-    		enemi.setDMG((MAGATK+MATK)/(100/(50+defense)));
-    		ADMG = ((MAGATK+MATK)/(100/(50+defense)));
+    		enemi.setDMG((INT +MATK)/(100/(50+defense)));
+    		ADMG = ((INT +MATK)/(100/(50+defense)));
     	}
     	if(Crit <= 4) {
             int defense = enemi.getDEF();
-            enemi.setDMG((MAGATK+5+MATK)/(100/(50+defense)));
-            ADMG = ((MAGATK+MATK)/(100/(50+defense)));
+            enemi.setDMG((INT +5+MATK)/(100/(50+defense)));
+            ADMG = ((INT +MATK)/(100/(50+defense)));
         	}
     }
     
@@ -138,6 +138,8 @@ public class Entity extends AnimatedSprite {
     public int getEtat(){
         return this.etat;
     }
+    public void setINT(int nINT){this.INT = nINT;}
+    public int getINT(){return this.INT;}
 
 
     public void setNom(String nNom){this.nom = nNom;}

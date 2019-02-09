@@ -46,9 +46,9 @@ public class ControlPanel extends TransparentPane {
         escapeButton = new JButton("Fuite");
 
         objets = new TransparentPane(0f, 1.0f);
-        potionVerte = new JButton("Potion verte");
-        potionRouge = new JButton("Potion rouge");
-        potionBleue = new JButton("Potion bleue");
+        potionVerte = new JButton("Item verte");
+        potionRouge = new JButton("Item rouge");
+        potionBleue = new JButton("Item bleue");
         antidote = new JButton("Antidote");
 
         magie = new TransparentPane(0f, 1.0f);
@@ -140,7 +140,7 @@ public class ControlPanel extends TransparentPane {
         potionVerte.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                personnage.setItem("Potion verte");
+                //personnage.setItem("Item verte");
                 main.setPlayerAction("objet");
                 main.tour(0,0);
             }
@@ -149,7 +149,7 @@ public class ControlPanel extends TransparentPane {
         potionBleue.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                personnage.setItem("Potion Bleue");
+                //personnage.setItem("Item Bleue");
                 main.setPlayerAction("objet");
                 main.tour(0,0);
             }
@@ -158,7 +158,7 @@ public class ControlPanel extends TransparentPane {
         potionRouge.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                personnage.setItem("Potion rouge");
+                //personnage.setItem("Item rouge");
                 main.setPlayerAction("objet");
                 main.tour(0,0);
             }
@@ -166,7 +166,7 @@ public class ControlPanel extends TransparentPane {
         antidote.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                personnage.setItem("Antidote");
+                //personnage.setItem("Antidote");
                 main.setPlayerAction("objet");
                 main.tour(0,0);
             }
@@ -175,7 +175,7 @@ public class ControlPanel extends TransparentPane {
             @Override
             public void actionPerformed(ActionEvent e) {
             	if(personnage.getMNA()-20>=0) {
-                personnage.setItem("feu");
+                //personnage.setItem("feu");
                 main.setPlayerAction("magie");
                 main.tour(0,0);
             	}
@@ -185,7 +185,7 @@ public class ControlPanel extends TransparentPane {
             @Override
             public void actionPerformed(ActionEvent e) {
             	if(personnage.getMNA()-15>=0) {
-                personnage.setItem("glace");
+                //personnage.setItem("glace");
                 main.setPlayerAction("magie");
                 main.tour(0,0);
             	}
@@ -195,7 +195,7 @@ public class ControlPanel extends TransparentPane {
             @Override
             public void actionPerformed(ActionEvent e) {
             	if(personnage.getMNA()-25>=0) {
-                personnage.setItem("electriciter");
+                //personnage.setItem("electriciter");
                 main.setPlayerAction("magie");
                 main.tour(0,0);
             	}
@@ -205,7 +205,7 @@ public class ControlPanel extends TransparentPane {
             @Override
             public void actionPerformed(ActionEvent e) {
             	if(personnage.getMNA()-15>=0) {
-                personnage.setItem("terre");
+                //personnage.setItem("terre");
                 main.setPlayerAction("magie");
                 main.tour(0,0);
             	}
