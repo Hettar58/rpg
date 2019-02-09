@@ -2,32 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="608e127b-cb79-4890-8b50-cddcddd190a4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/rpg/AnimatedSprite.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/rpg/AnimatedSprite.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/rpg/Animation$AnimFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/rpg/Animation$AnimFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/rpg/Animation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/rpg/Animation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/rpg/Background.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/rpg/Background.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/rpg/Character.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/rpg/Character.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/rpg/ControlPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/rpg/ControlPanel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/rpg/ControlPanel$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/rpg/ControlPanel$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/rpg/ControlPanel$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/rpg/ControlPanel$11.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/rpg/ControlPanel$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/rpg/ControlPanel$12.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/rpg/ControlPanel$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/rpg/ControlPanel$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/rpg/ControlPanel$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/rpg/ControlPanel$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/rpg/ControlPanel$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/rpg/ControlPanel$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/rpg/ControlPanel$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/rpg/ControlPanel$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/rpg/ControlPanel$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/rpg/ControlPanel$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/rpg/ControlPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/rpg/ControlPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/rpg/Enemi.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/rpg/Enemi.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/rpg/Entity.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/rpg/Entity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/rpg/LogPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/rpg/LogPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/rpg/Main$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/rpg/Main$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/rpg/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/rpg/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/rpg/Render.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/rpg/Render.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/rpg/Sprite.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/rpg/Sprite.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/rpg/TransparentPane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/rpg/TransparentPane.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Character.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Enemi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Enemi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Render.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Render.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/Classes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/docs/Classes.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,11 +18,64 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="33" column="23" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
+            <state relative-caret-position="4600">
+              <caret line="205" column="78" selection-start-line="205" selection-start-column="78" selection-end-line="205" selection-end-column="78" />
+              <folding>
+                <element signature="e#9364#9365#0" expanded="true" />
+                <element signature="e#9419#9420#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/docs/Classes.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="414">
+              <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Character.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="348">
+              <caret line="23" column="167" selection-start-line="23" selection-start-column="167" selection-end-line="23" selection-end-column="167" />
+              <folding>
+                <element signature="e#919#920#0" expanded="true" />
+                <element signature="e#950#951#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Enemi.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="296">
+              <caret line="14" column="108" selection-start-line="14" selection-start-column="108" selection-end-line="14" selection-end-column="108" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Render.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="599">
+              <caret line="35" column="45" selection-start-line="35" selection-start-column="45" selection-end-line="35" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Entity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2089">
+              <caret line="156" column="29" selection-start-line="156" selection-start-column="29" selection-end-line="156" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -55,14 +88,20 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/src/Render.java" />
+        <option value="$PROJECT_DIR$/src/docs/feature list.txt" />
+        <option value="$PROJECT_DIR$/src/Entity.java" />
+        <option value="$PROJECT_DIR$/src/docs/Classes.txt" />
         <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/Enemi.java" />
+        <option value="$PROJECT_DIR$/src/Character.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="20" />
-    <option name="width" value="1440" />
-    <option name="height" value="805" />
+    <option name="x" value="952" />
+    <option name="width" value="977" />
+    <option name="height" value="1038" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -79,12 +118,13 @@
             <path>
               <item name="rpg" type="b2602c69:ProjectViewProjectNode" />
               <item name="rpg" type="462c0819:PsiDirectoryNode" />
-              <item name=".idea" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="rpg" type="b2602c69:ProjectViewProjectNode" />
               <item name="rpg" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="docs" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -97,7 +137,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549705979960" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549709399984" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -136,18 +176,18 @@
       <option name="presentableId" value="Default" />
       <updated>1549705891353</updated>
       <workItem from="1549705897182" duration="107000" />
-      <workItem from="1549706030300" duration="280000" />
+      <workItem from="1549706030300" duration="3360000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="387000" />
+    <option name="totallyTimeSpent" value="3467000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2533512" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.5227882" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -156,7 +196,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32892805" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3318649" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -187,10 +227,63 @@
         <state relative-caret-position="-12995" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/LogPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Render.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="599">
+          <caret line="35" column="45" selection-start-line="35" selection-start-column="45" selection-end-line="35" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2089">
+          <caret line="156" column="29" selection-start-line="156" selection-start-column="29" selection-end-line="156" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/docs/feature list.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/docs/Classes.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="33" column="23" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
+        <state relative-caret-position="4600">
+          <caret line="205" column="78" selection-start-line="205" selection-start-column="78" selection-end-line="205" selection-end-column="78" />
+          <folding>
+            <element signature="e#9364#9365#0" expanded="true" />
+            <element signature="e#9419#9420#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Enemi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="14" column="108" selection-start-line="14" selection-start-column="108" selection-end-line="14" selection-end-column="108" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Character.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="23" column="167" selection-start-line="23" selection-start-column="167" selection-end-line="23" selection-end-column="167" />
+          <folding>
+            <element signature="e#919#920#0" expanded="true" />
+            <element signature="e#950#951#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

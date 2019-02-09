@@ -14,6 +14,9 @@ Sprite
 -->AnimatedSprite
    -->Entity
       -->Character
+        -->Inventaire
+        -->Arme
+        -->Magie
       -->enemi
 
 Animation
