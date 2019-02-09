@@ -22,6 +22,17 @@ public class Inventory {
         }
     }
 
+    public void use(Item item){
+        InventoryItem it = new InventoryItem(item, 1);
+        for (InventoryItem i : inventory){
+            if (it.equals(i)){
+                if (i.getQuantity() - 1 > 0) {
+                    i.setQuantity(i.getQuantity() - 1);
+                    i.getItem().use();
+                }
+            }
+        }
+    }
     public Item getItem(String item){
         for (InventoryItem i : inventory){
             if (item.equals(i.getName()) ){

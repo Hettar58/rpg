@@ -15,13 +15,10 @@ public class ControlPanel extends TransparentPane {
     private Character personnage;
     private Enemi enemi;
 
+    private JPanel objets;
+
     private JPanel middlePanel;
 
-    private JPanel objets;
-    private JButton potionVerte;
-    private JButton potionRouge;
-    private JButton potionBleue;
-    private JButton antidote;
 
     private JPanel magie;
     private JButton feu;
@@ -45,11 +42,6 @@ public class ControlPanel extends TransparentPane {
         magicButton = new JButton("Magie");
         escapeButton = new JButton("Fuite");
 
-        objets = new TransparentPane(0f, 1.0f);
-        potionVerte = new JButton("Item verte");
-        potionRouge = new JButton("Item rouge");
-        potionBleue = new JButton("Item bleue");
-        antidote = new JButton("Antidote");
 
         magie = new TransparentPane(0f, 1.0f);
         feu = new JButton("Feu");
@@ -61,7 +53,6 @@ public class ControlPanel extends TransparentPane {
         playerName = new JLabel(personnage.getNom()+": "+personnage.getPV()+"/"+personnage.getPV_max()+" PV - "+personnage.getMNA()+"/"+personnage.getMNA_max()+" MANA");
 
         inputPanel.setLayout(new GridLayout(4, 1));
-        objets.setLayout(new GridLayout(2, 2));
         magie.setLayout(new GridLayout(2, 2));
         info.setLayout(new FlowLayout());
 
@@ -73,10 +64,25 @@ public class ControlPanel extends TransparentPane {
         inputPanel.add(magicButton);
         inputPanel.add(escapeButton);
 
-        objets.add(potionVerte);
-        objets.add(potionRouge);
-        objets.add(potionBleue);
-        objets.add(antidote);
+        objets = new JPanel();
+        for(int i = 0; i < perso.getItems().size(); i++){
+            System.out.println("boucle");
+            Inventory.InventoryItem it = (Inventory.InventoryItem)(perso.getItems().get(i));
+            String text = it.getName()+" x"+it.getQuantity();
+            JButton jb = new JButton(text);
+            jb.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    main.setPlayerAction("objet");
+                    perso.setUsedItem(it.getItem());
+                    main.tour(0, 0);
+                    JButton jb = (JButton)(e.getSource());
+                    String text = it.getName()+" x"+it.getQuantity();
+                    jb.setText(text);
+                }
+            });
+            objets.add(jb);
+        }
 
         magie.add(feu);
         magie.add(glace);
@@ -137,40 +143,6 @@ public class ControlPanel extends TransparentPane {
             }
         });
 
-        potionVerte.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //personnage.setItem("Item verte");
-                main.setPlayerAction("objet");
-                main.tour(0,0);
-            }
-        });
-
-        potionBleue.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //personnage.setItem("Item Bleue");
-                main.setPlayerAction("objet");
-                main.tour(0,0);
-            }
-        });
-
-        potionRouge.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //personnage.setItem("Item rouge");
-                main.setPlayerAction("objet");
-                main.tour(0,0);
-            }
-        });
-        antidote.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //personnage.setItem("Antidote");
-                main.setPlayerAction("objet");
-                main.tour(0,0);
-            }
-        });
         feu.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

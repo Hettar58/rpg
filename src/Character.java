@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Character extends Entity{
     protected int niveau;
     protected int niveausup;
@@ -5,6 +7,7 @@ public class Character extends Entity{
     private int EXP;
     private Inventory inv;
     private ControlPanel magie;
+    private Item usedItem;
     public Character(int x, int y){
         super(x, y);
         inv = new Inventory();
@@ -36,6 +39,17 @@ public class Character extends Entity{
         return inv.getItem(item);
     }
 
+    public ArrayList getItems(){
+        return inv.getItems();
+    }
+
+    public void use (){
+        inv.use(usedItem);
+    }
+
+    public void setUsedItem(Item i){
+        this.usedItem = i;
+    }
     public void setEXP(int nEXP){
         this.EXP = nEXP;
         if(this.EXP >= levelPass) {
