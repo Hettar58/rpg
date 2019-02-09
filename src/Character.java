@@ -4,6 +4,7 @@ public class Character extends Entity{
     private int levelPass;
     private int EXP;
     private Inventory inv;
+    private ControlPanel magie;
     public Character(int x, int y){
         super(x, y);
         PV = 100;
@@ -46,4 +47,5 @@ public class Character extends Entity{
     }
     public void setNiveau(int niveau){this.niveau = niveau;}
     public int getNiveau(){return this.niveau;}
+    
 }

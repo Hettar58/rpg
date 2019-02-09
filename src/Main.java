@@ -77,38 +77,13 @@ public class Main extends JFrame implements MouseListener {
                     		perso1.attaque(enemi1);
                     		setstate(0,1);
                     	}  
-                    }
-                    
-                    //objets
-                    if (playerAction.equals("objet")) {
-                        if(perso1.getItem().equals("Item verte")) {
-                            perso1.setPV(perso1.getPV()+20);
-                            actionLog.updateLog("Vous avez r�cup�r� 20 PDV");
-                            
-                        }
-                        if(perso1.getItem().equals("Item rouge")) {
-                            perso1.setPV(perso1.getPV()+50);
-                            actionLog.updateLog("Vous avez r�cup�r� 50 PDV");
-                        }
-                        if(perso1.getItem().equals("Item Bleue")) {
-                            perso1.setMNA(perso1.getMNA()+25);
-                            actionLog.updateLog("Vous avez r�cup�r� 20 MANA");
-                            
-                        }
-                        if(perso1.getItem().equals("Antidote")) {
-                            perso1.setEtat(0);
-                            actionLog.updateLog("Vous etes revenu a l'etat normal");
-                        }
-                        setPlayerAction("");
-                        perso1.setItem("");
-                        setstate(1,0);                
-                    }
+                    }           
                     
                     //magie                    
                     if (playerAction.equals("magie")) {
                     	Magie magie = new Magie(perso1,enemi1);
                         setstate(0,1);
-                        perso1.setItem("");
+                        perso1.setmagie("");
                         setPlayerAction("");
                     }
                 }

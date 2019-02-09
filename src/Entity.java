@@ -17,6 +17,7 @@ public class Entity extends AnimatedSprite {
     protected int etat;
     protected int delay;
     protected String nom;
+    protected String magie;
 
     public Entity(int x, int y) {
         super(x, y);
@@ -166,7 +167,12 @@ public class Entity extends AnimatedSprite {
         }
         return Color.BLACK;
     }
-	
+	public void setmagie(String M) {
+		this.magie = M;
+	}
+	public String getmagie() {
+		return this.magie;
+	}
 
 
 }

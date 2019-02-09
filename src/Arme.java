@@ -10,7 +10,7 @@ public class Arme extends Equipement {
             int arme = geteffect;
     }
 
-    public void seteffect{
+    public void seteffect(){
         aleatoire = (int)(Math.random()*100+1);
         if (aleatoire>=0 && aleatoire<10);
             int arme = etat(0);
@@ -32,7 +32,7 @@ public class Arme extends Equipement {
         int arme = etat(8);
 
     }
-    public int geteffect{
+    public int geteffect(){
             return aleatoire;
     }
 }

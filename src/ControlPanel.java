@@ -175,7 +175,7 @@ public class ControlPanel extends TransparentPane {
             @Override
             public void actionPerformed(ActionEvent e) {
             	if(personnage.getMNA()-20>=0) {
-                //personnage.setItem("feu");
+            		personnage.setmagie("feu");
                 main.setPlayerAction("magie");
                 main.tour(0,0);
             	}
@@ -185,7 +185,7 @@ public class ControlPanel extends TransparentPane {
             @Override
             public void actionPerformed(ActionEvent e) {
             	if(personnage.getMNA()-15>=0) {
-                //personnage.setItem("glace");
+            		personnage.setmagie("glace");
                 main.setPlayerAction("magie");
                 main.tour(0,0);
             	}
@@ -195,7 +195,7 @@ public class ControlPanel extends TransparentPane {
             @Override
             public void actionPerformed(ActionEvent e) {
             	if(personnage.getMNA()-25>=0) {
-                //personnage.setItem("electriciter");
+            	personnage.setmagie("electriciter");
                 main.setPlayerAction("magie");
                 main.tour(0,0);
             	}
@@ -205,7 +205,7 @@ public class ControlPanel extends TransparentPane {
             @Override
             public void actionPerformed(ActionEvent e) {
             	if(personnage.getMNA()-15>=0) {
-                //personnage.setItem("terre");
+                personnage.setmagie("terre");
                 main.setPlayerAction("magie");
                 main.tour(0,0);
             	}
