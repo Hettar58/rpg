@@ -215,6 +215,8 @@ public class ControlPanel extends TransparentPane {
 
     public void refresh(){
         playerName.setText(personnage.getNom()+": "+personnage.getPV()+"/"+personnage.getPV_max()+" PV - "+personnage.getMNA()+"/"+personnage.getMNA_max()+" MANA");
+        objets.setVisible(false);
+        magie.setVisible(false);
     }
 
     public void setPersonnage(Character perso){

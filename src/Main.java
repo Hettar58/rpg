@@ -253,7 +253,7 @@ public class Main extends JFrame implements MouseListener {
     	return state2;
     }
     public boolean getfin() {return fin;}
-    public void mousePressed(MouseEvent e){ }
+    public void mousePressed(MouseEvent e){}
     public void mouseReleased(MouseEvent e){}
     public void mouseEntered(MouseEvent e){}
     public void mouseExited(MouseEvent e){}
