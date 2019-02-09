@@ -1,8 +1,10 @@
 public class Arme extends Equipement {
     protected int givenEtat;
     protected int aleatoire;
-
+    
+    
     public Arme(){
+<<<<<<< Updated upstream
         ATK=10;
         VIT=10;
         aleatoire = (int)(Math.random()*50+1);
@@ -41,5 +43,8 @@ public class Arme extends Equipement {
         }
 
     }
+=======
+       
 }
-
+>>>>>>> Stashed changes
+}
