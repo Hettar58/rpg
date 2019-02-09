@@ -67,12 +67,12 @@ public class ControlPanel extends TransparentPane {
         inputPanel.add(magicButton);
         inputPanel.add(escapeButton);
 
-        objets = new JPanel();
+        objets = new TransparentPane(0f, 1.0f);
         for(int i = 0; i < perso.getItems().size(); i++){
             System.out.println("boucle");
             Inventory.InventoryItem it = (Inventory.InventoryItem)(perso.getItems().get(i));
             String text = it.getName()+" x"+it.getQuantity();
-            JButton jb = new JButton(text);
+            JButton jb = new Button(text);
             jb.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {

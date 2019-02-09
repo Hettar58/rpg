@@ -11,28 +11,21 @@ import javax.swing.JButton;
  
  
 public class Button extends JButton{
- 
+	
+		private Color transparant = new Color(0,0,0,0.2f);
          private String name;
      private Image img;
  
      public Button(String str){
              super(str);
              this.name = str;
- 
-             try {
-                     img = ImageIO.read(new File("src/res/buttonfight.png"));
-                } catch (IOException e) {
-                        e.printStackTrace();
-                }
- 
- 
      }
  
      public void paintComponent(Graphics g){
  
          Graphics2D g2d = (Graphics2D)g;
  
-         GradientPaint gp = new GradientPaint(0, 0, Color.blue, 0, 20, Color.cyan, true);
+         GradientPaint gp = new GradientPaint(0, 0, Color.black, 0, 20, transparant, true);
          g2d.setPaint(gp);
          g2d.fillRect(0, 0, this.getWidth(), this.getHeight());
          g2d.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), this);
