@@ -8,8 +8,9 @@ public class Inventory {
     }
 
     public void addItem(Item item, int quantity){
-        InventoryItem it = new InventoryItem(item, 1);
+        InventoryItem it = new InventoryItem(item, quantity);
         boolean exist = false;
+
         for (InventoryItem i : inventory){
             if (it.equals(i)){
                 exist = true;

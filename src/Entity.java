@@ -141,6 +141,8 @@ public class Entity extends AnimatedSprite {
     }
     public void setINT(int nINT){this.INT = nINT;}
     public int getINT(){return this.INT;}
+    public void setMAGDEF(int nMAGDEF){this.MAGDEF = nMAGDEF;}
+    public int getMAGDEF(){return this.MAGDEF;}
 
 
     public void setNom(String nNom){this.nom = nNom;}
