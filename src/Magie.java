@@ -5,7 +5,7 @@ public class Magie {
 		
 		
 		int aleatoire = (int)(Math.random()*100);
-        if(perso1.getItem().equals("feu")) {
+        if(perso1.getmagie().equals("feu")) {
             perso1.setMNA(perso1.getMNA()-20);
             perso1.magattack(enemi1,10);
             actionLog.updateLog(perso1.getNom()+" attaque feu !");
@@ -14,7 +14,7 @@ public class Magie {
             	enemi1.touretat=0;
             }
         }
-        if(perso1.getItem().equals("glace")) {
+        if(perso1.getmagie().equals("glace")) {
             perso1.setMNA(perso1.getMNA()-15);
             perso1.magattack(enemi1,7);
             actionLog.updateLog(perso1.getNom()+" attaque Glace !");
@@ -23,7 +23,7 @@ public class Magie {
             	enemi1.touretat=0;
             }
         }
-        if(perso1.getItem().equals("electriciter")) {
+        if(perso1.getmagie().equals("electriciter")) {
             perso1.setMNA(perso1.getMNA()-25);
             perso1.magattack(enemi1,10);
             actionLog.updateLog(perso1.getNom()+" attaque electrique !");
@@ -32,7 +32,7 @@ public class Magie {
             	enemi1.touretat=0;
             }
         }
-        if(perso1.getItem().equals("terre")) {
+        if(perso1.getmagie().equals("terre")) {
         	actionLog.updateLog(perso1.getNom()+" attaque terre !");
         	perso1.setMNA(perso1.getMNA()-15);
             perso1.magattack(enemi1,9);
