@@ -81,7 +81,7 @@ public class Main extends JFrame implements MouseListener {
                     
                     //objets
                     if (playerAction.equals("objet")) {
-                        /*if(perso1.getItem().equals("Item verte")) {
+                        if(perso1.getItem().equals("Item verte")) {
                             perso1.setPV(perso1.getPV()+20);
                             actionLog.updateLog("Vous avez r�cup�r� 20 PDV");
                             
