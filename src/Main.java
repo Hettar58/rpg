@@ -22,11 +22,20 @@ public class Main extends JFrame implements MouseListener {
     }
     private void initUI(){
         perso1 = new Character(280, 250);
-        perso1.addItem(new Item("Potion", null, perso1, "PV", "+", 40));
-        perso1.addItem(new Item("Potion", null, perso1, "PV", "+", 40));
-        perso1.addItem(new Item("Potion", null, perso1, "PV", "+", 40));
-        perso1.addItem(new Item("Potion", null, perso1, "PV", "+", 40));
-        perso1.addItem(new Item("Potion", null, perso1, "PV", "+", 40));
+        perso1.addItem(new Item("Potion", null, perso1, "PV", "+", 100));
+        perso1.addItem(new Item("Potion", null, perso1, "PV", "+", 100));
+        perso1.addItem(new Item("Potion", null, perso1, "PV", "+", 100));
+        perso1.addItem(new Item("Potion", null, perso1, "PV", "+", 100));
+        perso1.addItem(new Item("Potion", null, perso1, "PV", "+", 100));
+        perso1.addItem(new Item("Haute Potion", null, perso1, "PV", "+", 400));
+        perso1.addItem(new Item("Super Potion", null, perso1, "PV", "+", perso1.getPV_max()));
+        perso1.addItem(new Item("Mana Plus", null, perso1, "MNA", "%", 20));
+        perso1.addItem(new Item("Mana Plus", null, perso1, "MNA", "%", 20));
+        perso1.addItem(new Item("Mana Plus", null, perso1, "MNA", "%", 20));
+        perso1.addItem(new Item("Esprit supérieur", null, perso1, "MNA", "%", 50));
+        perso1.addItem(new Item("Esprit supérieur", null, perso1, "MNA", "%", 50));
+        perso1.addItem(new Item("Esprit supérieur", null, perso1, "MNA", "%", 50));
+        perso1.addItem(new Item("Mana Prism", null, perso1, "MNA", "%", 100));
         enemi1 = new Enemi(480, 250, perso1.getNiveau());
         fightUI = new ControlPanel(0.3f, 1f, perso1, enemi1, this);
         actionLog = new LogPanel(0.5f, 1.0f);
@@ -103,7 +112,7 @@ public class Main extends JFrame implements MouseListener {
             // l'affichage des degats et verification si ennemie mort
             if (sta == 0 && sta2 == 1) {
                 setstate(1, 0);
-                actionLog.updateLog(perso1.getNom() + " inflige " + perso1.getADMG() + " DMG � l'enemi");
+                actionLog.updateLog(perso1.getNom() + " inflige " + perso1.getADMG() + " DMG ? l'enemi");
                 if (enemi1.getPV() <= 0) {
                     setstate(3, 2);
                 }
@@ -116,14 +125,14 @@ public class Main extends JFrame implements MouseListener {
                     //statue
                     if (sta == 1 && sta2 == 0) {
                         if (enemi1.getEtat() == 2) {
-                            actionLog.updateLog("L'ennemie est gel�");
+                            actionLog.updateLog("L'ennemie est gel?");
                             setstate(2, 0);
                             enemi1.touretat++;
                         }
                         if (enemi1.getEtat() == 3) {
                             int aleatoire = (int) (Math.random() * 100);
                             if (aleatoire < 30) {
-                                actionLog.updateLog("L'ennemie est paralys�");
+                                actionLog.updateLog("L'ennemie est paralys?");
                                 setstate(2, 0);
                             }
                             enemi1.touretat++;
@@ -139,11 +148,11 @@ public class Main extends JFrame implements MouseListener {
                     //----------------------------------------------------------------------
                     //Attack de l'ennemie
                     if (sta == 1 && sta2 == 1) {
-                        actionLog.updateLog("l'enemie a inflig� " + enemi1.getADMG() + " au joueur");
+                        actionLog.updateLog("l'enemie a inflig? " + enemi1.getADMG() + " au joueur");
                         setstate(1, 2);
                     }
                     //--------------------------------------------------------------------
-                    //verife etat brul�
+                    //verife etat brul?
                     if (sta == 1 && sta2 == 2) {
                         if (enemi1.getEtat() == 1) {
                             enemi1.setDMG(12);
@@ -171,11 +180,11 @@ public class Main extends JFrame implements MouseListener {
                 setstate(2, 1);
             }
             if (sta == 3 && sta2 == 2) {
-                actionLog.updateLog("Gagn�");
+                actionLog.updateLog("Gagn?");
                 setstate(3, 1);
             }
             if (sta == 3 && sta2 == 1) {
-                actionLog.updateLog("vous avez gagn� " + enemi1.getGivenEXP() + " Exp");
+                actionLog.updateLog("vous avez gagn? " + enemi1.getGivenEXP() + " Exp");
                 perso1.setEXP(enemi1.givenEXP);
                 setstate(3, 0);
             }
@@ -207,10 +216,7 @@ public class Main extends JFrame implements MouseListener {
             }
 
         }
-        }
-
-    
-
+    }
     public void setPlayerAction(String action){this.playerAction = action;}
     public void setCpuAction(String action){this.cpuAction = action;}
     public void setstate(int state,int state2) {

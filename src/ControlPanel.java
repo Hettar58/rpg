@@ -18,7 +18,7 @@ public class ControlPanel extends TransparentPane {
     private Character personnage;
     private Enemi enemi;
 
-    private JPanel objets;
+    private TransparentPane objets;
 
     private JPanel middlePanel;
 
@@ -68,6 +68,7 @@ public class ControlPanel extends TransparentPane {
         inputPanel.add(escapeButton);
 
         objets = new TransparentPane(0f, 1.0f);
+        objets.setLayout(new GridLayout(4, 4));
         for(int i = 0; i < perso.getItems().size(); i++){
             System.out.println("boucle");
             Inventory.InventoryItem it = (Inventory.InventoryItem)(perso.getItems().get(i));

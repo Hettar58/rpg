@@ -1,3 +1,4 @@
+import java.awt.desktop.QuitStrategy;
 import java.util.ArrayList;
 
 public class Inventory {
@@ -27,7 +28,9 @@ public class Inventory {
         for (InventoryItem i : inventory){
             if (it.equals(i)){
                 if (i.getQuantity() - 1 > 0) {
+                    System.out.println("usage");
                     i.setQuantity(i.getQuantity() - 1);
+                    System.out.println("qte -1 "+i.getQuantity());
                     i.getItem().use();
                 }
             }

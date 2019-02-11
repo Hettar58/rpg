@@ -120,7 +120,12 @@ public class Entity extends AnimatedSprite {
         return this.VIT;
     }
     public void setMNA(int nMNA){
-        this.MNA = nMNA;
+        if(nMNA > MNA_max){
+            this.MNA = this.MNA_max;
+        }
+        else{
+            this.MNA = nMNA;
+        }
     }
     public int getMNA(){
         return this.MNA;
