@@ -20,4 +20,7 @@ public class AnimatedSprite extends Sprite {
     public void updateAnim(long elapsedTime) {
         anim.update(elapsedTime);
     }
+    public void stopAnim() {
+    	this.anim.addFrame(null, 0);
+    }
 }

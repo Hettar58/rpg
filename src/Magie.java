@@ -1,8 +1,8 @@
-public class Magie {
+public class Magie extends AnimatedSprite{
 	private LogPanel actionLog = new LogPanel(0.5f, 1.0f);
-
+	
 	public Magie (Character perso1, Enemi enemi1) {
-		
+		super(enemi1.getX(),enemi1.getY());
 		
 		int aleatoire = (int)(Math.random()*100);
         if(perso1.getmagie().equals("feu")) {
@@ -22,6 +22,11 @@ public class Magie {
             	enemi1.setEtat(2);
             	enemi1.touretat=0;
             }
+            for(int i = 1; i <= 31;i++) {
+        		String e = "src/res/GlaceMagie"+i+".jpg";
+        		enemi1.loadImage(e,50);
+            }
+            enemi1.loadImage(null);
         }
         if(perso1.getmagie().equals("electriciter")) {
             perso1.setMNA(perso1.getMNA()-25);

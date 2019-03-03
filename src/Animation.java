@@ -14,6 +14,17 @@ public class Animation{
         totalDuration = 0;
         start();
     }
+    
+    public Animation(String Magie,Entity Coordonner) {
+    	String e = "";
+    	frames = new ArrayList();
+    	totalDuration = 0;
+    	for(int i = 0; i <= 30;i++) {
+    		e = "src/res/"+Magie+""+i+".png";
+    		addFrame(e,totalDuration);   		
+    	}
+    	
+    }
 
     public synchronized void addFrame(String dir, long duration){
         totalDuration += duration;
