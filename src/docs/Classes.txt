@@ -1,0 +1,22 @@
+Structure d'Héritage:
+
+JFrame
+--> Main
+
+JPanel
+--> Render
+--> TransparentPane
+    -->ControlPanel
+    -->LogPanel
+
+Sprite
+-->Background
+-->AnimatedSprite
+   -->Entity
+      -->Character
+        -->Inventaire
+        -->Arme
+        -->Magie
+      -->enemi
+
+Animation

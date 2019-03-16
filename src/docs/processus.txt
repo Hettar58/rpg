@@ -1,0 +1,65 @@
+- initialisation
+- do boucle principale:
+    - menu principal
+         switch:
+             - case nouveau jeu / reprise de sauvegarde
+             - case gestion de sauvegarde
+             - case options ?
+             - case quitter
+     - if nouveauJeu:
+        nouveauJeu();
+
+     - else reprise:
+         reprise();
+
+     - else gestion sauvegarde:
+        - ...
+
+     - else options ?
+        - ...
+
+- while !quitter
+}
+
+
+function void nouveauJeu(){
+   - nom de la sauvegarde
+   - choix du personnage
+   - choix de la classe de personnage
+   - sauvegarde parametres principaux
+   - Personnage Joueur = new Personnage();
+   game(Personnage joueur, stage = 0);
+}
+
+function void reprise(){
+   - ouvrir fichier de sauvegarde
+   - récupérer objets + données auxiliaires;
+   - Personnage joueur = new Personnage(params);
+   game(Personnage joueur, données auxiliaires)
+}
+
+function void game(Personnage Joueur, Params données_auxiliaires){
+   do{
+      getInput();
+      switch étatJeu (combat, déplacement, map, )
+         - case combat:
+            en fonction du menu et de l'input, on incrémente / décrémente int submenu;
+            submenu = processInput();
+            switch submenu:
+               -case 0: ...
+               -case X: joueur.attack(enemi1);
+               -case Y: ran = SuperRandom.int(45); // cas ou le joueur essaye de s'échapper du combat
+                        if (ran != == >= <= value)
+                           etatJeu  = C; 
+                           
+            Ajout dans la pile de rendu des éléments nécessaires.
+            renderFile.add(menu);
+            renderFile.add(enemis);
+
+         -case déplacement:
+
+            renderPile.add(map);
+      processAuxiliare();
+      render(renderPile);
+   }while(gameOver == false || endGame == false);
+}

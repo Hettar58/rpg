@@ -1,0 +1,54 @@
+Projet perso RPG --------------------------------------------------------------
+
+combat tour par tour        OU          Temps réel
+histoire fixe                OU          Influençable par des choix
+Personnages prédéfinis       OU          personnalisables
+classes fixes                OU          au choix
+déplacement comme mécanique de gameplay ? (REF Fire Emblem)
+maps fixes                   OU          altérables
+déplacements fixés           OU          free roam
+aspect rétro                OU          aspect récent
+comabt en mode 7            OU          vue de dessus
+combats aléatoires          OU          combats fixés
+gestion de la difficulté ?
+quels envirronements ?
+plusieurs persos            OU          1 perso + compagnons
+paramètre réalistes         OU          simplifiés
+quel élément comme clé de voute du jeu ?
+mana unifié                  OU          mana élémentaire
+arme unique par classe      OU          plusieurs armes
+enemis tous différents      OU          enemis évoluent
+enemis indépendants env     OU          enemis liés à l'environnement
+attaques avec mana          OU          mana uniquement pour sorts
+éléments de buff/nerf de stats ?
+loot d'armes par les enemis ?
+aspect économique simple ? complexe ?
+gestion d'une équipe/guilde ?
+tous les perso en gestion auto ? gestion manuelle ?
+sauvegarde par checkpoint ou sauvegarde instantanée ?
+
+VIT (vitesse) -> + elle est elevee, - de délai entre les attaques
+ATK (attaque) -> + elle est elevee + de degats
+INT (intelligence) -> soit ATK pour les mages soit buff d'autres stats.
+DEF (défense) -> + elle est élevée - de dégats lors d'une attaque.
+MNA (mana) -> stat unique à mage ou sorcier
+STM (endurance) -> + elle est élevé, + d'action possibles.
+LCK (chance) -> la probabilité des évènements ayant une faible probabilité augmente.
+
+etats speciaux:
+0 = normal;
+1 = paralysé -> endurance à 0 pendant 2 délais / passe deux tours sans pourvoir agir
+2 = confus -> 50% de chances d'attaquer un allié ET 1/4 de chance de ne pas appliquer la commande demandée (donc atk random).
+3 = aveuglé -> 75% de chance de miss l'attaque
+4 = ralenti -> VIT diminuée de moitié
+5 = poison -> 15 DMG a chaque action du joueur + dégats critiques obligatoires par les enemis.
+6 = brulé
+7 = gelé
+
+potion : 100 HP
+Haute potion: 400 HP
+Super potion: tous HP
+
+mana plus: 20% MP
+esprit supérieur: 50% MP
+Mana prism: tous MP
