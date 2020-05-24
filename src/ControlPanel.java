@@ -69,24 +69,21 @@ public class ControlPanel extends TransparentPane {
 
         objets = new TransparentPane(0f, 1.0f);
         objets.setLayout(new GridLayout(4, 4));
-        for(int i = 0; i < perso.getItems().size(); i++){
+        /*for(int i = 0; i < perso.getItems().size(); i++){
             System.out.println("boucle");
-            Inventory.InventoryItem it = (Inventory.InventoryItem)(perso.getItems().get(i));
-            String text = it.getName()+" x"+it.getQuantity();
+            Item it = (Item)perso.getItems().get(i);
+            String text = it.getName()+" x"+perso.getItems().get(i).getQuantity();
             JButton jb = new Button(text);
             jb.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     main.setPlayerAction("objet");
-                    perso.setUsedItem(it.getItem());
+                    perso.setUsedItem(it);
                     main.tour(0, 0);
-                    JButton jb = (JButton)(e.getSource());
-                    String text = it.getName()+" x"+it.getQuantity();
-                    jb.setText(text);
                 }
             });
             objets.add(jb);
-        }
+        }*/
 
         magie.add(feu);
         magie.add(glace);
