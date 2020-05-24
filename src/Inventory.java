@@ -24,14 +24,11 @@ public class Inventory {
     }
 
     public void use(Item item){
-        InventoryItem it = new InventoryItem(item, 1);
-        for (InventoryItem i : inventory){
-            if (it.equals(i)){
-                if (i.getQuantity() - 1 > 0) {
-                    System.out.println("usage");
-                    i.setQuantity(i.getQuantity() - 1);
-                    System.out.println("qte -1 "+i.getQuantity());
-                    i.getItem().use();
+        for (int i = 0; i < inventory.size(); i++){
+            if (item.getName().equals(inventory.get(i).getName())){
+                if (inventory.get(i).getQuantity() -1 >= 0){
+                    inventory.get(i).setQuantity(inventory.get(i).getQuantity() -1);
+                    inventory.get(i).getItem().use();
                 }
             }
         }
